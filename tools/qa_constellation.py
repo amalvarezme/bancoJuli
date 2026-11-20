@@ -111,7 +111,10 @@ with sync_playwright() as p:
             check(f"{tag} top-5 entry selects that system", sel2 and sel2.endswith(".sun") and sel2 != side["sel"], str(sel2))
             page.keyboard.press("Escape")
             check(f"{tag} Escape closes panel", not f.evaluate("() => document.getElementById('side').classList.contains('open')"))
-        # controls
+        # controls (narrow screens fold the camera buttons behind «más»)
+        if f.locator("#more").is_visible():
+            f.locator("#more").click()
+            check(f"{tag} «más» shows the camera controls", f.locator("#zoomin").is_visible())
         f.locator("#autorotate").click(); on1 = f.evaluate("() => viewer.rotating()")
         f.locator("#autorotate").click(); on2 = f.evaluate("() => viewer.rotating()")
         check(f"{tag} rotation toggles", on1 != on2, f"{on1}->{on2}")

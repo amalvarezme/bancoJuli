@@ -45,7 +45,7 @@ Instalación del comando (una vez): `ln -s "$PWD/bin/bancoJuli" ~/.local/bin/ban
 
 ### Vistas
 
-- **Constelación 3D:** cada publicación (sol dorado) o proyecto (sol azul) es un sistema solar cuyos planetas son aplicación, problema, novedad, clúster, temas, resultados, conclusiones y productos. Clic ilumina el nodo con sus conexiones y abre la ficha con los 5 más relacionados; doble clic vuela hasta él; `constelacion.html?focus=A020` abre con un sistema seleccionado. Sin GPU para WebGL muestra una vista 2D (`?view=2d` la fuerza).
+- **Constelación 3D:** cada publicación (sol dorado) o proyecto (sol azul) es un sistema solar cuyos planetas son aplicación, problema, novedad, clúster, temas, resultados, conclusiones y productos. Clic ilumina el nodo con sus conexiones y abre la ficha con los 5 más relacionados; doble clic vuela hasta él; `constelacion.html?focus=A020` abre con un sistema seleccionado. Sin GPU para WebGL muestra una vista 2D (`?view=2d` la fuerza). En pantallas angostas la barra muestra solo el buscador, el filtro de clúster y **⋯ más**, que despliega los controles de cámara, rotación, nombres y la leyenda. Para ahorrar batería, el visor deja de dibujar 4 s después de la última interacción cuando no está rotando, y también cuando sale de la vista o se cambia de pestaña. En teléfonos y equipos modestos la rotación automática se detiene tras 20 s sin interacción.
 - **Clústeres e ideas:** novedades recientes e ideas de trabajo futuro por clúster, con «Copiar base de redacción».
 - **Sistema temático:** los temas como planetas con las publicaciones y proyectos en órbita, agrupables por tema o clúster.
 - **Explorar:** buscador con filtros por tipo, tema, clúster, año y tipo de producto (artículo, libro, capítulo, tesis, proyecto).
@@ -103,7 +103,7 @@ Pruebas del índice: `python3 -m unittest discover -s tests`. Consulta rápida: 
 uv run --no-project --with scikit-learn --with numpy python tools/build_bank.py
 ```
 
-`tools/import_raw.py` normaliza `data/raw/articles.json` y `data/raw/projects.json` en `data/raw/sources.json`. Los resúmenes viven en `data/summaries/*.jsonl`; edítelos ahí y regenere.
+Los logos del sitio se generan con `uv run --no-project --with pillow python tools/web_logos.py` a partir de los originales en `tools/assets/src/`. `tools/import_raw.py` normaliza `data/raw/articles.json` y `data/raw/projects.json` en `data/raw/sources.json`. Los resúmenes viven en `data/summaries/*.jsonl`; edítelos ahí y regenere.
 
 ## Notas de calidad
 

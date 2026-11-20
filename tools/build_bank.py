@@ -272,12 +272,15 @@ def atlas(items, clusters, links):
     by_id = {it["id"]: it for it in items}
 
     def planet(pid, slot, orbit, label, detail, it, tip=None):
-        return {"id": pid, "slot": slot, "orbit": orbit, "label": label[:90], "detail": detail,
-                "tip": tip or short(f"{label}: {detail}", 90),
-                "provenance": it.get("src") or "CvLAC",
-                "evidence": {"quote": (it.get("abstract") or it.get("summary") or "")[:420],
-                             "origin": f"https://doi.org/{it['doi']}" if it.get("doi") else it.get("url") or it["id"],
-                             "retrieved": "2026-11-19"}}
+        out = {"id": pid, "slot": slot, "orbit": orbit, "label": label[:90], "detail": detail,
+               "tip": tip or short(f"{label}: {detail}", 90), "provenance": it.get("src") or "CvLAC"}
+        # The evidence is the same for every planet of a system: keep it once, on the sun, so the page
+        # does not ship and parse it ten times over (the viewer page does not read it).
+        if pid == "sun":
+            out["evidence"] = {"quote": (it.get("abstract") or it.get("summary") or "")[:420],
+                               "origin": f"https://doi.org/{it['doi']}" if it.get("doi") else it.get("url") or it["id"],
+                               "retrieved": "2026-11-19"}
+        return out
 
     systems = []
     for it in items:

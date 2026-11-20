@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: Universidad de Caldas institutional look (manual de identidad 2024) — navy sticky band with tabs,
@@ -85,7 +86,7 @@ main { padding-block: 20px 48px; }
 #orrery { display: block; width: 100%; height: min(78vh, 820px); min-height: 460px; cursor: grab; }
 #orrery:active { cursor: grabbing; }
 .planet-label { font: 600 11px var(--display); fill: var(--ink); pointer-events: none; paint-order: stroke; stroke: var(--sky); stroke-width: 4px; }
-.planet-count { font: 400 10px var(--mono); fill: var(--muted); pointer-events: none; paint-order: stroke; stroke: var(--sky); stroke-width: 3px; }
+.planet-count { font: 400 11px var(--mono); fill: var(--muted); pointer-events: none; paint-order: stroke; stroke: var(--sky); stroke-width: 3px; }
 .node { cursor: pointer; }
 .dim { opacity: .12; }
 #tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 12px; max-width: 320px; display: none; z-index: 3; }
@@ -128,7 +129,7 @@ input, select { width: 100%; font: 14px var(--body); color: var(--ink); backgrou
 .kind.articulo { border-radius: 50%; background: var(--gold); }
 .kind.proyecto { background: var(--green); transform: rotate(45deg); }
 #timeline { width: 100%; height: auto; display: block; }
-.axis text { font: 10px var(--mono); fill: var(--muted); }
+.axis text { font: 11px var(--mono); fill: var(--muted); }
 .axis line, .axis path { stroke: var(--line); }
 aside { position: fixed; top: 0; right: 0; bottom: 0; width: min(560px, 100%); background: var(--panel); border-left: 4px solid var(--brand); box-shadow: -6px 0 24px rgba(0,0,0,.18); z-index: 20; overflow-y: auto; padding: calc(18px + env(safe-area-inset-top, 0px)) calc(20px + env(safe-area-inset-right, 0px)) calc(40px + env(safe-area-inset-bottom, 0px)) 20px; }
 aside h2 { font: 700 20px/1.3 var(--display); color: var(--brand); margin: 6px 0 10px; text-wrap: balance; }
@@ -166,6 +167,7 @@ footer.lab a { color: var(--lime); }
   .uc-logo img { height: 38px; }
   .site a { font-size: 16px; }
   .site span { display: none; }
+  .stats .opt, #v-constelacion .lede .desc { display: none; }
   .stats { margin-left: 0; gap: 2px 12px; font-size: 11px; }
   .hero .wrap { padding-block: 10px; gap: 8px; }
   .brand img { height: 48px; }
@@ -177,11 +179,28 @@ footer.lab a { color: var(--lime); }
   .frame3d { height: calc(100svh - 24px); min-height: 380px; }
   .card { padding: 14px; }
 }
-/* Touch screens: larger targets and 16px fields, so iOS does not zoom in on focus. */
+/* Short landscape screens (phones on their side): one compact hero row, so the 3D view starts high. */
+@media (max-height: 500px) and (min-width: 560px) {
+  .bar-top { flex-wrap: nowrap; }
+  .site { display: none; }
+  .hero .wrap { grid-template-columns: auto minmax(0, 1fr); padding-block: 6px; align-items: center; }
+  .brand img, h1 small { display: none; }
+  h1 { font-size: 20px; }
+  .leads[open] ul { display: none; }
+  .lede { font-size: 13px; margin-bottom: 8px; }
+  main { padding-block: 8px 24px; }
+}
+/* Touch screens: larger targets and 16px fields, so iOS does not zoom in on focus.
+   Links in running text grow their hit area with padding offset by a negative margin (no layout shift). */
 @media (pointer: coarse) {
+  .site a, .leads .links a { display: inline-block; padding-block: 12px; margin-block: -12px; }
+  footer.lab a, .lede a, .card li a, aside p a { padding-block: 12px; }
+  .lede a, .card li a { border-bottom: 0; text-decoration: underline dotted var(--faint); text-underline-offset: 3px; }
+  .ids a { padding: 10px 14px; }
+  .leads summary { padding-block: 10px; margin-block: -6px 0; }
   nav button { padding: 11px 12px 9px; }
   .seg button { padding: 9px 14px; }
-  .chip { padding: 6px 12px 6px 10px; }
+  .chip { padding: 10px 12px 10px 10px; }
   .btn { padding: 9px 14px; }
   input, select { font-size: 16px; padding: 10px; }
   .row { padding-block: 12px; }
@@ -236,7 +255,7 @@ footer.lab a { color: var(--lime); }
 
 <main class="wrap">
   <section class="view" id="v-constelacion">
-    <p class="lede">Visor 3D de <b>papersmith-ai</b>: cada sistema es una publicación (sol dorado) o un proyecto (sol azul) con sus planetas temáticos. <a class="link" href="constelacion.html" target="_blank" rel="noopener">Abrir en pantalla completa</a></p>
+    <p class="lede"><span class="desc">Visor 3D de <b>papersmith-ai</b>: cada sistema es una publicación (sol dorado) o un proyecto (sol azul) con sus planetas temáticos.</span> <a class="link" href="constelacion.html" target="_blank" rel="noopener">Abrir en pantalla completa</a></p>
     <iframe class="frame3d" id="frame3d" title="Constelación 3D" src="constelacion.html" loading="lazy"></iframe>
   </section>
 
@@ -313,8 +332,8 @@ const el = (tag, attrs = {}, ...kids) => { const e = document.createElement(tag)
   const a = ITEMS.filter(i => i.kind === 'articulo'), p = ITEMS.filter(i => i.kind === 'proyecto');
   const ys = ITEMS.map(yearOf).filter(Boolean);
   const s = document.getElementById('stats');
-  [['publicaciones', a.length], ['proyectos', p.length], ['temas', TIDS.length], ['clústeres', CL.length], ['periodo', `${Math.min(...ys)}–${Math.max(...ys)}`]]
-    .forEach(([k, v]) => s.append(el('span', {}, el('b', {}, String(v)), ' ' + k)));
+  [['publicaciones', a.length], ['proyectos', p.length], ['temas', TIDS.length, 'opt'], ['clústeres', CL.length, 'opt'], ['periodo', `${Math.min(...ys)}–${Math.max(...ys)}`]]
+    .forEach(([k, v, c]) => s.append(el('span', c ? { class: c } : {}, el('b', {}, String(v)), ' ' + k)));
 })();
 
 // The constellation iframe renders continuously; tell it when its tab is hidden so it pauses.
@@ -324,7 +343,14 @@ function notifyConstellation(visible) {
     frame3d.contentWindow.postMessage({type: 'banco-juli-visibility', visible}, location.origin);
   }
 }
-frame3d.addEventListener('load', () => notifyConstellation(!document.getElementById('v-constelacion').hidden));
+// It also pauses while scrolled out of view (e.g. reading the page below it on a phone).
+let frameOnScreen = true;
+const constellationShown = () => frameOnScreen && !document.getElementById('v-constelacion').hidden;
+frame3d.addEventListener('load', () => notifyConstellation(constellationShown()));
+if ('IntersectionObserver' in window) new IntersectionObserver(es => {
+  frameOnScreen = es[es.length - 1].isIntersecting;
+  notifyConstellation(constellationShown());
+}).observe(frame3d);
 
 // Tabs with bookmarkable hash tokens
 const views = [...document.querySelectorAll('nav button')];
@@ -333,7 +359,7 @@ function show(name) {
   views.forEach(b => b.setAttribute('aria-selected', String(b.dataset.view === name)));
   document.querySelectorAll('.view').forEach(v => v.hidden = v.id !== 'v-' + name);
   if (name === 'constelacion') { const f = document.getElementById('frame3d'); if (f && !f.src) f.src = 'constelacion.html'; }
-  notifyConstellation(name === 'constelacion');
+  notifyConstellation(name === 'constelacion' && frameOnScreen);
   if (name !== 'sistema' && sim) sim.stop();
   if (name === 'sistema' && orreryStale) drawOrrery();
   if (name === 'tiempo') drawTimeline();

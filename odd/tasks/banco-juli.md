@@ -17,7 +17,7 @@ Branch: main (public repo github.com/amalvarezme/bancoJuli). Delivery: single fe
 - T5 S3-S4 U Caldas look: header, logos, colors, lead profile; build docs/ (inline) — done: N_CLUSTERS=6 named, MIN_YEAR=0, reported project->publication links, Perfil tab, U Caldas palette in dashboard + constellation
 - T6 S2 MCP server banco-juli + tests (inline) — done: instructions rewritten, new researcher_profile tool (RED 2 errors -> GREEN 18/18), wheel builds (64 files)
 - T7 S4 Playwright QA of constellation and views (inline) — done: qa_constellation 112/112 (QA_HEADLESS=1); qa_memory 6/7, fps 20 < 40 is the headless SwiftShader environment (no display here); screenshots of all 6 views x 2 widths reviewed
-- T8 S2 GitHub repo amalvarezme/bancoJuli (public) + Pages from main/docs (inline) — pending
+- T8 S2 GitHub repo amalvarezme/bancoJuli (public) + Pages from main/docs (inline) — done: commits 1a93d82, 0860cc6, fb297fe; Pages built, https://amalvarezme.github.io/bancoJuli/ 200; qa_constellation on live site 112/112
 
 ## Log
 - L1 (2026-11-19) User request verbatim: "toma como base el proyecto banco proyectos lia inal. vamos a realizar el mismo tipo de proyecto con despliegue en girhub pages, mcp, ajustando a logos y estilo de presentacion de la Universidad de caldas, presenvsndo constelacion 3d, cluster ides y demas paneles y secciones para los trabajos del profesor carlos julian ramirez gomez de la universidad de caldas. busca google scholar, cvlac, paginas u caldas y lo que consideres para armar sus peoyectos, paper y demas artefactos de investigacion que consideres"

@@ -1,0 +1,106 @@
+{
+ "institution": "Universidad de Caldas",
+ "logos": {
+  "supersigno_svg": "brand/ucaldas_supersigno.svg",
+  "supersigno_png_300dpi": "brand/ucaldas_supersigno.png",
+  "horizontal_svg": "brand/ucaldas_logo_horizontal.svg",
+  "horizontal_png_300dpi": "brand/ucaldas_logo_horizontal.png",
+  "vertical_svg": "brand/ucaldas_logo_vertical.svg",
+  "vertical_png_300dpi": "brand/ucaldas_logo_vertical.png",
+  "web_horizontal_dark_png": "brand/Logo_horizontal_oscuroU-2023.png",
+  "web_horizontal_white_png": "brand/09-Logo-y-nombre-derecha-blanco.png",
+  "notes": "SVG/PNG \"ucaldas_*\" files were cut from page 11 of the official Manual de Identidad 2024 (vector PDF) with pdftocairo; the SVGs are full-page exports cropped by viewBox (they still contain the rest of the page outside the view) and were not render-checked; the 300 dpi PNGs were visually checked. The two web PNGs are the ones used on ucaldas.edu.co (header/footer). The ® mark is mandatory.",
+  "source_urls": [
+   "https://www.ucaldas.edu.co/portal/wp-content/uploads/2024/09/1100-1612.pdf",
+   "https://www.ucaldas.edu.co/portal/wp-content/uploads/2023/11/Logo_horizontal_oscuroU-2023.png",
+   "https://www.ucaldas.edu.co/portal/wp-content/uploads/2024/03/09-Logo-y-nombre-derecha-blanco.png"
+  ]
+ },
+ "colors": {
+  "primary": {
+   "hex": "#003e70",
+   "name": "Azul institucional",
+   "pantone": "541C",
+   "cmyk": "C100 M75 Y31 K17",
+   "source": "manual 2024"
+  },
+  "primary_dark": {
+   "hex": "#00284d",
+   "cmyk": "C100 M83 Y43 K41",
+   "source": "manual 2024"
+  },
+  "primary_light": {
+   "hex": "#045389",
+   "cmyk": "C100 M63 Y19 K5",
+   "source": "manual 2024"
+  },
+  "secondary": {
+   "hex": "#d5bb87",
+   "name": "Dorado institucional",
+   "pantone": "7508C",
+   "cmyk": "C15 M26 Y55 K3",
+   "source": "manual 2024"
+  },
+  "secondary_light": {
+   "hex": "#efd9af",
+   "cmyk": "C5 M16 Y39 K0",
+   "source": "manual 2024"
+  },
+  "secondary_dark": {
+   "hex": "#b5a27c",
+   "cmyk": "C26 M31 Y55 K11",
+   "source": "manual 2024"
+  },
+  "neutral": "#ffffff",
+  "web_css_observed": {
+   "--primary-color": "#003B70",
+   "--secondary-color": "#d5bb87",
+   "gold_accent_frequent": "#d7b860",
+   "note": "Values from ucaldas.edu.co inline CSS / LiteSpeed UCSS; the web uses #003B70 (manual: #003e70)."
+  },
+  "faculty_colors_manual_2024": {
+   "Ciencias Agropecuarias": "#66a382",
+   "Ciencias para la Salud": "#4e81aa",
+   "Ciencias Jurídicas y Sociales": "#563279",
+   "Artes y Humanidades": "#bb4b4e",
+   "Ciencias Exactas y Naturales": "#e6b759",
+   "Inteligencia Artificial e Ingenierías": "#d27b48"
+  },
+  "faculty_colors_web_css": {
+   "Ciencias Agropecuarias": "#00a97d",
+   "Ciencias Exactas": "#FCB514",
+   "Ciencias Jurídicas": "#632A7F",
+   "Ciencias para la Salud": "#0085B2",
+   "Ingenierías": "#F26E22",
+   "default_heading": "#DF3245"
+  }
+ },
+ "typography": {
+  "standard": "Roboto (Regular, Medium, Italic; bold for titles)",
+  "institutional_identifiers": "Roboto Condensed (Regular + Bold)",
+  "logotype_and_documents": "Times New Roman (the \"Universidad de Caldas\" wordmark is always Times New Roman)",
+  "anniversaries": "Bodoni 72 Bold",
+  "exterior_signage": "Century Gothic Bold",
+  "web_observed": [
+   "Roboto (500, 900)",
+   "Work Sans (400, 500, 900)",
+   "Raleway (theme --font-family fallback)"
+  ],
+  "google_fonts_url_web": "https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;900&family=Roboto:wght@500;900&display=swap"
+ },
+ "design_notes": [
+  "Azul es la tonalidad predominante; dorado como secundario; blanco neutro (manual 2024).",
+  "Pages in the manual end with a footer band: navy (#00284d-ish) ~65%, gold #d5bb87, light gold #efd9af.",
+  "Supersigno: sol Quimbaya con lema \"Lumina Spargo\" (difundo luz)."
+ ],
+ "source_css_urls": [
+  "https://www.ucaldas.edu.co/portal/",
+  "https://www.ucaldas.edu.co/portal/wp-content/litespeed/ucss/a80704751ea29cc67cde69673ae20996.css?ver=d3bf3",
+  "https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;900&family=Roboto:wght@500;900&display=swap"
+ ],
+ "source_manual": {
+  "title": "Manual de Identidad Institucional, Versión 2024 (Acuerdo 23 de 2024 del Consejo Superior)",
+  "url": "https://www.ucaldas.edu.co/portal/wp-content/uploads/2024/09/1100-1612.pdf",
+  "local": "brand/ucaldas_manual_identidad_2024.pdf"
+ }
+}

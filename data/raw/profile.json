@@ -1,0 +1,249 @@
+{
+ "name": "Carlos Julián Ramírez Gómez",
+ "name_variants": [
+  "Carlos Julián Ramírez-Gómez",
+  "RAMIREZ GOMEZ, CARLOS JULIAN",
+  "Carlos Julián Ramírez G",
+  "C. J. Ramírez-Gómez"
+ ],
+ "ids": {
+  "cvlac_cod_rh": "0001396742",
+  "google_scholar": "BcgHqLYAAAAJ",
+  "orcid": "0000-0003-0099-0932",
+  "orcid_secondary": {
+   "id": "0000-0003-2669-8593",
+   "note": "Second ORCID record (name \"Carlos Julian Ramirez-Gomez\", ResearcherID E-2568-2016, 1 work: Acta Agronómica 2015). Same person, likely a duplicate ORCID account."
+  },
+  "researcherid": "E-2568-2016",
+  "openalex": [
+   "A5067927754",
+   "A5102991225",
+   "A5040563903"
+  ],
+  "openalex_note": "OpenAlex splits his works over three author profiles; all three carry U. Caldas / U. Antioquia affiliations and the same rural-development topics."
+ },
+ "minciencias_category": {
+  "value": "Investigador Junior (IJ)",
+  "history": [
+   {
+    "convocatoria": "Convocatoria 781 de 2017",
+    "category": "Investigador Junior",
+    "affiliation": "Universidad de Antioquia"
+   },
+   {
+    "convocatoria": "Convocatoria 833 de 2018",
+    "category": "Investigador Junior",
+    "affiliation": "FAO"
+   },
+   {
+    "convocatoria": "Convocatoria 894 de 2021",
+    "category": "Investigador Junior",
+    "affiliation": null
+   }
+  ],
+  "par_evaluador_reconocido": true,
+  "source": [
+   "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001396742",
+   "https://www.datos.gov.co/resource/bqtm-4y2h.json?id_persona_pr=0001396742"
+  ]
+ },
+ "institution": "Universidad de Caldas",
+ "faculty": "Facultad de Ciencias Agropecuarias",
+ "department": "Departamento de Desarrollo Rural y Recursos Naturales",
+ "position": "Profesor (dedicación 40 h/semana) desde agosto de 2022",
+ "teaching": [
+  "Economía Agraria (pregrado)",
+  "Formulación y Evaluación de Proyectos",
+  "Especialización en Administración y Evaluación de Proyectos Agropecuarios y Agroindustriales"
+ ],
+ "city": "Manizales, Caldas, Colombia",
+ "education": [
+  {
+   "degree": "Posdoctorado (Programa de Pós-doutorado em Administração, Centro de Estudos das Organizações)",
+   "institution": "Universidade de São Paulo",
+   "period": "2021-02 / 2021-12",
+   "topic": "A cadeia de valor do café e sua transição para a sustentabilidade no Brasil e na Colômbia: uma análise a partir do sistema tecnológico de inovação"
+  },
+  {
+   "degree": "Estancia posdoctoral (Ciencias Agrarias, Área de Administración)",
+   "institution": "Universidad de Antioquia",
+   "period": "2020-02 / 2021-02",
+   "topic": "Análisis prospectivo estratégico de la cadena agroindustrial de cacao en Antioquia, a partir de un sistema territorial de innovación agrícola"
+  },
+  {
+   "degree": "Doctorado en Ingeniería - Industria y Organizaciones",
+   "institution": "Universidad Nacional de Colombia, Sede Medellín",
+   "period": "2015-01 / 2018-12",
+   "thesis": "Desempeño de sistemas territoriales de innovación agrícola bajo un enfoque de redes: Una aplicación en cadenas agroindustriales"
+  },
+  {
+   "degree": "Maestría en Desarrollo Rural (Planificación)",
+   "institution": "Pontificia Universidad Javeriana, Bogotá",
+   "period": "2011-01 / 2013-06",
+   "thesis": "El territorio panelero del municipio de Supía Caldas: un análisis bajo el enfoque de los sistemas agroalimentarios localizados SIAL"
+  },
+  {
+   "degree": "Especialización en Desarrollo Agroindustrial",
+   "institution": "Universidad de Caldas",
+   "period": "2007-02 / 2008-12",
+   "thesis": "Estudio de factibilidad del montaje de una planta agroindustrial para el aprovechamiento de la lombriz roja californiana en el municipio de Manizales"
+  },
+  {
+   "degree": "Ingeniero Agrónomo",
+   "institution": "Universidad de Caldas",
+   "period": "1998-08 / 2004-06",
+   "thesis": "Análisis económico del cultivo de la coca (Erythroxylum coca) al oriente de Caldas. Un estudio de caso"
+  },
+  {
+   "degree": "Pasantía doctoral en Economía",
+   "institution": "Universidad Autónoma Chapingo - CIESTAAM (México)",
+   "period": "2016-01 / 2016-08"
+  },
+  {
+   "degree": "Pasantía doctoral",
+   "institution": "UNAM - Centro de Ciencias Aplicadas y Desarrollo Tecnológico (México)",
+   "period": "2017-07 / 2017-12"
+  }
+ ],
+ "experience": [
+  {
+   "org": "Universidad de Caldas",
+   "role": "Docente-investigador; línea \"Innovación y Desarrollo Agroempresarial\"",
+   "period": "2022-08 / actual"
+  },
+  {
+   "org": "Minciencias",
+   "role": "Líder de política pública y estrategia de formación de alto nivel",
+   "period": "2022-01 / 2022-08"
+  },
+  {
+   "org": "FAO",
+   "role": "Rural Innovation Specialist Consultant (evaluación del Sistema de Innovación Agropecuaria de Colombia, proyecto TAP-AIS)",
+   "period": "2021-08 / 2021-12"
+  },
+  {
+   "org": "Universidad de Antioquia",
+   "role": "Investigador posdoctoral",
+   "period": "2020-02 / 2021-02"
+  },
+  {
+   "org": "Corporación Universitaria Lasallista",
+   "role": "Docente, Facultad de Ciencias Administrativas y Agropecuarias",
+   "period": "2019-07 / 2020-08"
+  },
+  {
+   "org": "FAO",
+   "role": "Consultor en desarrollo de agronegocios",
+   "period": "2018-01 / 2019-06"
+  },
+  {
+   "org": "Universidad de Antioquia",
+   "role": "Consultor - metodología de estilos de aprendizaje (MIDEAS)",
+   "period": "2016-08 / 2017-02"
+  },
+  {
+   "org": "FAO",
+   "role": "Consultor en cadenas agroalimentarias y abastecimiento de alimentos (Antioquia)",
+   "period": "2014-10 / 2015-02"
+  },
+  {
+   "org": "SENA",
+   "role": "Consultor líder de equipo técnico-pedagógico",
+   "period": "2013-10 / 2014-07"
+  },
+  {
+   "org": "Universidad de Antioquia",
+   "role": "Docente (Formulación de Proyectos, Extensión Agropecuaria, Sociología Rural, Mercadeo Agropecuario)",
+   "period": "2013-02 / 2014-09"
+  },
+  {
+   "org": "Universidad de Caldas",
+   "role": "Director de programa Administración de Empresas Agropecuarias",
+   "period": "2011-02 / 2011-12"
+  },
+  {
+   "org": "SENA",
+   "role": "Instructor (producción agrícola, emprendimiento y planes de negocio)",
+   "period": "2007-09 / 2010-12"
+  }
+ ],
+ "research_lines_cvlac": [
+  "Innovación y Desarrollo en el sector Agroindustrial",
+  "Gestión del conocimiento en el sector Agroindustrial",
+  "Desarrollo Económico Sostenible",
+  "Innovación Rural",
+  "Análisis de Cadenas Agroindustriales"
+ ],
+ "orcid_keywords": [
+  "Innovation, knowledge management, rural development"
+ ],
+ "openalex_topics": [
+  "Agricultural Innovations and Practices",
+  "Agricultural Development and Management",
+  "Regional Development and Innovation",
+  "Agriculture and Agroindustry Studies",
+  "Latin American rural development",
+  "Rural Development and Agriculture"
+ ],
+ "areas_cvlac": [
+  "Ciencias Agrícolas -- Agronomía",
+  "Ingeniería y Tecnología -- Alimentos y Bebidas",
+  "Ciencias Sociales -- Negocios y Management",
+  "Ciencias Sociales -- Relaciones Industriales",
+  "Ciencias Sociales -- Economía",
+  "Ingeniería y Tecnología -- Otras Ingenierías y Tecnologías"
+ ],
+ "languages": [
+  "Español",
+  "Inglés",
+  "Portugués"
+ ],
+ "research_groups": [
+  {
+   "name": "INNOVACIÓN Y GESTIÓN TECNOLÓGICA",
+   "gruplac_code": "COL0057811",
+   "institution": "Universidad Nacional de Colombia (Medellín)",
+   "evidence": "Product endorsed for this group in Minciencias Convocatoria 894 de 2021 (datos.gov.co dataset 33dq-ab5a)",
+   "current": "unknown"
+  },
+  {
+   "name": "DELTA",
+   "gruplac_code": "COL0057043",
+   "institution": "Corporación Universitaria Lasallista",
+   "evidence": "Product endorsed for this group in Minciencias Convocatoria 894 de 2021 (datos.gov.co dataset 33dq-ab5a)",
+   "current": "unknown"
+  }
+ ],
+ "research_groups_note": "CvLAC does not list group membership and his current Universidad de Caldas GrupLAC group could not be confirmed (not found among the 34 U. Caldas groups checked). Candidate U. Caldas groups by topic, unverified: Centro de Estudios Rurales CERES (COL0034549), ASPA (COL0000229), Territorialidades (COL0016372).",
+ "awards": [
+  {
+   "title": "Reconocimiento por labor académica de proyección e impacto en la sociedad por la dirección del programa \"La Universidad en el Campo\"",
+   "org": "Universidad de Caldas",
+   "date": "2011-05"
+  },
+  {
+   "title": "Proyecto Postdoctoral seleccionado en la convocatoria 848 de 2019",
+   "org": "Minciencias",
+   "date": "2020-02"
+  },
+  {
+   "title": "Beca \"Generación del Bicentenario - Francisco José de Caldas\" para estudios de doctorado en Colombia",
+   "org": "Colciencias",
+   "date": "2015-01"
+  }
+ ],
+ "short_bio": "Ingeniero agrónomo (Universidad de Caldas), magíster en Desarrollo Rural (Pontificia Universidad Javeriana) y doctor en Ingeniería - Industria y Organizaciones (Universidad Nacional de Colombia, Medellín), con estancias posdoctorales en la Universidad de Antioquia y la Universidade de São Paulo. Profesor del Departamento de Desarrollo Rural y Recursos Naturales de la Facultad de Ciencias Agropecuarias de la Universidad de Caldas desde 2022. Investiga sistemas territoriales de innovación agrícola, extensión rural, redes de conocimiento, asociatividad y agroempresas rurales, cadenas agroindustriales (cacao, café, lácteos, panela) y emprendimiento de jóvenes rurales. Ha sido consultor de la FAO y líder de política de formación de alto nivel en Minciencias. Investigador Junior reconocido por Minciencias.",
+ "short_bio_note": "Composed only from facts in CvLAC, ORCID and ucaldas.edu.co news posts.",
+ "sources": [
+  "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001396742",
+  "https://orcid.org/0000-0003-0099-0932",
+  "https://orcid.org/0000-0003-2669-8593",
+  "https://scholar.google.es/citations?user=BcgHqLYAAAAJ",
+  "https://openalex.org/A5067927754",
+  "https://openalex.org/A5102991225",
+  "https://openalex.org/A5040563903",
+  "https://www.ucaldas.edu.co/portal/facultad-de-ciencias-agropecuarias-realizo-la-primera-jornada-de-empleabilidad-para-estudiantes/",
+  "https://www.ucaldas.edu.co/portal/inscripciones-abiertas-para-la-especializacion-en-administracion-y-evaluacion-de-proyectos-agropecuarios-y-agroindustriales-2/",
+  "https://revistas.unal.edu.co/index.php/agrocol/article/view/125596"
+ ]
+}

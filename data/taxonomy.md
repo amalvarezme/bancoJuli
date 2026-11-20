@@ -1,0 +1,11 @@
+Topic IDs (use 1-3 per record, first = primary):
+T01 Sistemas territoriales de innovación agrícola (STIA, Sistema Nacional de Innovación Agropecuaria, plataformas de innovación, descentralización, políticas de CTeI agropecuaria)
+T02 Redes y capital social (análisis de redes sociales, confianza, redes de información, colaboración y conocimiento)
+T03 Extensión rural y gestión del conocimiento (asistencia técnica, estilos de aprendizaje, aprendizaje de agricultores, género en la extensión)
+T04 Adopción de tecnología y prácticas sostenibles (adopción tecnológica, estándares voluntarios de sostenibilidad, ganadería y lechería, aguacate)
+T05 Asociatividad y agroempresas rurales (organizaciones asociativas, multifuncionalidad, sostenibilidad organizacional, agricultura familiar, agregación de valor)
+T06 Cadenas agroindustriales y de valor (cacao, café, lácteos, panela, naranja, prospectiva, alianzas público-privadas, transición a la sostenibilidad)
+T07 Emprendimiento rural y juventud (jóvenes rurales, perfil emprendedor, permanencia territorial, ecosistemas de emprendimiento)
+T08 Abastecimiento agroalimentario y planificación participativa (sistemas de abastecimiento, planes de asistencia técnica, programas de desarrollo agropecuario)
+T09 Economía y desarrollo agrícola (dinámica de desarrollo agrícola, análisis económico de cultivos, cultivos ilícitos, agronegocios, diversificación productiva)
+T10 Educación rural y formación (educación superior rural, programas educativos tecnológicos, universidad en el campo)

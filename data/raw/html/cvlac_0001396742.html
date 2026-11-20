@@ -1,0 +1,3260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+
+
+
+
+<html>
+
+    <head>
+        <title>CvLAC - RG</title>
+<script>
+	var texto="";
+	var NS4 = (document.layers); // Which browser?
+	var IE4 = (document.all);
+	var win = window; // window to search.
+	var n = 0;
+	
+	function resaltar(valor){
+	var encontro=0;
+	var donde=0;
+	//valor=document.getElementById('tt').value;
+	reemplazar=RegExp(valor,"i");
+	por="<span style=\u0022background-Color:yellow;\u0022>"+valor+"</span>";
+	if(texto==""){texto=document.body.innerHTML};
+	txt=texto.split(">");
+	for (x=0;x<txt.length;x++){
+	desde=(txt[x].indexOf("<")!=-1)?txt[x].indexOf("<"):0;
+	tempP=txt[x].slice(0,desde);
+	tempU=txt[x].slice(desde);
+	tempPx=tempP.split(" ");
+	for(y=0;y<tempPx.length;y++){
+	if(tempPx[y].search(reemplazar)!=-1){
+	tempPx[y]=tempPx[y].replace(reemplazar,por);
+	encontro+=1;
+	}
+	}
+	txt[x]=tempPx.join(" ")+tempU;
+	}
+	document.body.innerHTML=txt.join(">");
+	//alert((encontro==0)?"No se encontro ''"+valor+"''":"Se encontraron "+encontro+" coincidencias");
+	encontro=null;
+	donde=null;
+	}
+	
+	<!-- Original by http://javascript.internet.com More javascripts http://www.hypergurl.com -->
+	
+	function findInPage(str) {
+	//resaltar(str);
+	var txt, i, found; if (str == "") return false; // Find next occurance of the given string on the page, wrap around to the
+	// start of the page if necessary.
+	if (NS4) { // Look for match starting at the current point. If not found, rewind
+	// back to the first match.
+	if (!win.find(str)) while(win.find(str, false, true))
+	n++; else n++; // If not found in either direction, give message. if (n == 0)
+	alert("Not found."); } if (IE4) { txt = win.document.body.createTextRange();
+	// Find the nth match from the top of the page.
+	for (i = 0; i <= n && (found = txt.findText(str)) != false; i++) { txt.moveStart("character", 1); txt.moveEnd("textedit"); } // If found, mark it and scroll it into view.
+	if (found) { txt.moveStart("character", -1); txt.findText(str);
+	txt.select(); txt.scrollIntoView(); n++; } // Otherwise, start over at the top of the page and find first match.
+	else { if (n > 0) { n = 0; findInPage(str);
+	} // Not found anywhere, give message.
+	else alert("Not found."); } }
+	return false; }
+</script>
+        <meta name="google-site-verification" content="i8iweOHAFYQV0nLnM5KwROxv6enyqJioSpdx0w_uZSI" />                        
+    
+        <meta name="google-site-verification" content="i8iweOHAFYQV0nLnM5KwROxv6enyqJioSpdx0w_uZSI" />
+        <link href="/cvlac/css/visualizador.css;jsessionid=BBF0A26CF77626529FB9D4575A0D10C3" type="text/css" rel="stylesheet">
+        <meta content="no-cache" http-equiv="pragma">
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    </head>
+
+<body>
+
+<div class="wrapper">
+            <div class="header">
+                <div class="menubar">
+                    <ul class="mmenu" style="height:23px;padding:2px;">
+                        <li ><a class="menu" href="#" style="width:100px">Datos generales</a>
+
+                            <ul>
+                                <li><a class="menu" href="#datos_generales">Identificaci&oacute;n</a></li>
+                                <li><a class="menu" href="#redes_identificadores">Redes sociales acad&eacute;micas</a></li>
+                                <li><a class="menu" href="#red_identificadores">Identificadores de autor</a></li>
+                                <li><a class="menu" href="#formacion_acad">Formaci&oacute;n acad&eacute;mica</a></li>
+                                <li><a class="menu" href="#formacion_comp">Formaci&oacute;n complementaria</a></li>
+                                <li><a class="menu" href="#estancias_posdoctorales">Estancias posdoctorales</a></li>
+                                <li><a class="menu" href="#experiencia">Experiencia profesional</a></li>
+                                <li><a class="menu" href="#otra_info_personal">Otra informaci&oacute;n personal</a></li>
+                            </ul>
+
+                        </li>
+                        <li ><a class="menu" href="#" style="width:130px">Actividades formaci&oacute;n</a>
+
+                            <ul>
+                                <li><a class="menu" href="#asesorias">Asesor&iacute;as</a></li>
+                                <li><a class="menu" href="#curso_corta_du">Cursos de corta duraci&oacute;n</a></li>
+                                <li><a class="menu" href="#trabajos_dirigi">Trabajos dirigidos/tutor&iacute;as</a></li>
+                            </ul>
+
+                        </li>
+                        <li ><a class="menu" href="#" style="width:120px">Actividades evaluador</a>
+
+                            <ul>
+                                <li><a class="menu" href="#jurado">Jurado comisiones evaluadoras de trabajo de grado</a></li>
+                                <li><a class="menu" href="#par">Par evaluador</a></li>
+                                <li><a class="menu" href="#comite">Participaci&oacute;n en comit&eacute; de evaluaci&oacute;n</a></li>
+                            </ul>
+
+                        </li>
+                        <li ><a class="menu" href="#" style="width:130px">Apropiaci&oacute;n social</a>
+
+                            <ul>
+                                <li><a class="menu" href="#edicion">Edici&oacute;n</a></li>
+                                <li><a class="menu" href="#evento">Evento cient&iacute;fico</a></li>
+                                <li><a class="menu" href="#re_co">Redes de conocimiento especializado</a></li>                                
+                                <li><a class="menu" href="#asc_for">Fortalecimiento o soluci&oacute;n de asuntos de inter&eacute;s social</a></li>									
+                                <li><a class="menu" href="#asc_tra">Trabajo conjunto entre un Centro de Ciencia y un grupo de investigaci&oacute;n</a></li>									
+                                <li><a class="menu" href="#asc_gen">Generaci&oacute;n de insumos de pol&iacute;tica p&uacute;blica y normatividad</a></li>									
+                                <li><a class="menu" href="#asc_cad">Fortalecimiento de cadenas productivas</a></li>									
+                                <li><a class="menu" href="#div_ced">Publicaciones editoriales no especializadas</a></li>									
+                                <li><a class="menu" href="#div_cda">Producciones de contenido digital Audiovisual</a></li>									
+                                <li><a class="menu" href="#div_cds">Producciones de contenido digital Sonoro</a></li>									
+                                <li><a class="menu" href="#div_cdr">Producciones de contenido digital Recursos gr&aacute;ficos</a></li>									
+                                <li><a class="menu" href="#div_ctr">Producci&oacute;n de estrategias y contenidos transmedia</a></li>									
+                                <li><a class="menu" href="#div_des">Desarrollos web</a></li>	
+                            </ul>
+
+                        </li>
+
+                        <li ><a class="menu" href="#" style="width:140px">Producci&oacute;n bibliogr&aacute;fica</a>
+
+                            <ul>
+                                <li><a class="menu" href="#articulos">Art&iacute;culos</a></li>
+                                <li><a class="menu" href="#libros">Libros</a></li>
+                                <li><a class="menu" href="#capitulos">Cap&iacute;tulos de libro</a></li>
+                                <li><a class="menu" href="#nota_cientifica">Nota cient&iacute;fica</a></li>
+                                <li><a class="menu" href="#textos">Textos en publicaciones no cient&iacute;ficas</a></li>
+                                <li><a class="menu" href="#otra_prod_biblio">Otra producci&oacute;n bibliog&aacute;fica</a></li>
+                                <li><a class="menu" href="#lib_tra">Traducciones Filol&oacute;gicas y Edición de Fuentes</a></li>
+                                <li><a class="menu" href="#lib_cre">Libro de creaci&oacute;n (Piloto)</a></li>
+                                <li><a class="menu" href="#lib_for">Libro de Formaci&oacute;n</a></li>
+                                <li><a class="menu" href="#lib_div">Libros de divulgaci&oacute;n y/o Compilaci&oacute;n de divulgaci&oacute;n</a></li>
+                                <li><a class="menu" href="#lib_man">Manuales y Gu&iacute;as Especializadas</a></li>
+
+                            </ul>
+
+                        </li>	
+                        <li ><a class="menu" href="#" style="width:120px">Producci&oacute;n T&eacute;cnica</a>
+
+                            <ul>
+                                <li><a class="menu" href="#patentes">Patentes</a></li>
+                                <li><a class="menu" href="#secretos">Secretos empresariales</a></li>
+                                <li><a class="menu" href="#software">Software</a></li>
+                                <li><a class="menu" href="#tecnologicos">Productos tenol&oacute;gicos</a></li>
+                                <li><a class="menu" href="#procesos">Procesos o t&eacute;cnicas</a></li>
+                                <li><a class="menu" href="#trabajos_tec">Trabajos t&eacute;cnicos</a></li>
+                                <li><a class="menu" href="#normas">Normas y Regulaciones</a></li>
+                                <li><a class="menu" href="#otra_prod_tecnica">Otra producci&oacute;n t&eacute;cnica</a></li>
+                                <li><a class="menu" href="#base_tecnologica">Empresas de base tecnologica</a></li>
+                            </ul>
+
+                        </li>	
+                        <li ><a class="menu" href="#" style="width:100px">M&aacute;s informaci&oacute;n</a>
+
+                            <ul>
+                                <li><a class="menu" href="#demas_trabajos">Dem&aacute;s Trabajos</a></li>
+                                <li><a class="menu" href="#proyectos">Proyectos</a></li>
+                            </ul>
+
+                        </li>
+                        <li><a class="menu" href="#" style="width:110px">Producción en arte</a>
+
+                            <ul>
+                                <li><a class="menu" href="#obras_productos">Obras o productos</a></li>
+                                <li><a class="menu" href="#registros_acuerdo">Registros de acuerdo de licencia</a></li>
+                                <li><a class="menu" href="#crea_cul">Industrias Creativas y culturales</a></li>
+                                <li><a class="menu" href="#even_art">Evento artistico</a></li>
+                                <li><a class="menu" href="#talleres">Talleres creativos</a></li>
+                            </ul>
+
+                        </li>
+                        <li><a class="menu" href="#" style="width:60px;">Buscar</a><!--[if IE 7]><!--><!--<![endif]-->
+
+                            <ul>
+
+                                <li>
+                                    <form style="margin:0px;" name="search" onSubmit="return findInPage(this.string.value);" method="get">
+                                        <input name="string" type="text" onChange="n = 0;" /><br />
+                                        <input type="submit" value="Buscar" name="search" />
+                                    </form>
+                                </li>
+                            </ul>
+
+                        </li>				
+                    </ul>		
+                </div>
+            </div>
+
+            <div class="sep">&nbsp;</div>
+
+            <div class="container">
+                <table with="100%">   
+                    <tr><td><h3 align="center"><font size="3">Hoja de vida</font></h3></td></tr>
+                    <tr>        
+                        <td width="100%"><a name="datos_generales"></a>
+                            <table width="100%" style="border:#999 1px solid">                    
+                                
+                                <tr>    
+                                    <td colspan="2" class="messageText"><b>Par evaluador reconocido por Minciencias.</b></td>                            
+                                </tr>                        
+                                
+                                
+                                    <tr>
+                                        <td>Categor&iacute;a</td>
+                                        <td>
+                                            Investigador Junior (IJ) con vigencia
+                                            
+                                                hasta la publicación de los resultados de la siguiente convocatoria
+                                                
+                                            
+                                        </td>
+                                    </tr>
+                                                          
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>
+                                        CARLOS JULIAN&nbsp;RAMIREZ&nbsp;GOMEZ
+                                    </td>            
+                                </tr>
+                                <tr>           
+                                    <td>Nombre en citaciones</td>
+                                    <td>RAMIREZ GOMEZ, CARLOS JULIAN</td>
+                                </tr>        
+                                <tr>            
+                                    <td>Nacionalidad</td>
+                                    <td>Colombiana</td>            
+                                </tr>                                 
+                                <tr>            
+                                    <td>Sexo</td>
+                                    <td>Masculino</td>            
+                                </tr>                     
+                            </table>
+                            </td>
+                    </tr>
+
+                    <!--INICIO REDES -->
+                    <tr>
+                        <td width="100%"><a name="redes_identificadores"></a>
+                            <table width="100%" style="border:#999 1px solid">
+                                <tr>
+                                    <td><h3 >Redes sociales acad&eacute;micas</h3></td>
+                                </tr>
+                                    
+                                <tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        
+                                        <a target="_blank" href="https://scholar.google.es/citations?user=BcgHqLYAAAAJ&hl=es" style="color: #007A81">Google Scholar</a>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                            </td>
+                    </tr>
+
+                    <!--                FIN REDES-->
+
+                    <!--INICIO IDENTIFICADORES -->
+                    <tr>
+                        <td width="100%"><a name="red_identificadores"></a>
+                            <table width="100%" style="border:#999 1px solid">
+                                <tr>
+                                    <td><h3 >Identificadores de autor</h3></td>
+                                </tr>
+                                    
+                                <tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        
+                                        <a target="_blank" href="https://orcid.org/0000-0003-0099-0932" style="color: #007A81">Open Researcher and Contributor ID (ORCID)</a>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                            </td>
+                    </tr>
+
+                    <!--                FIN IDENTIFICADORES-->
+
+                    <tr>        
+                        <td width="100%"><a name="formacion_acad"></a>
+                            <table width="100%" style="border:#999 1px solid">
+                                <tr>
+                                    <td colspan="2"><h3>Formaci&oacute;n Acad&eacute;mica</h3></td>
+                                </tr>   
+                                
+                                <tr>
+                                    <td><li>&nbsp;</li></td>    
+                        <td><b>Doctorado</b>
+                            UNIVERSIDAD NACIONAL DE COLOMBIA SEDE MEDELLÍN<br />
+                            Ingeniería de la Industria y Organizaciones (Area: Ingeniería Administrativa)<br />
+                            Enerode2015 - Diciembrede 2018<br />
+                            Desempeño de sistemas territoriales de innovación agrícola bajo un enfoque de redes: Una aplicación en cadenas agroindustriales</td>
+                    </tr>
+                    
+                                <tr>
+                                    <td><li>&nbsp;</li></td>    
+                        <td><b>Maestría/Magister</b>
+                            PONTIFICIA UNIVERSIDAD JAVERIANA - SEDE BOGOTA<br />
+                            Desarrollo Rural - Planificación<br />
+                            Enerode2011 - Juniode 2013<br />
+                            El territorio panelero del municipio de Supía Caldas: Un análisis bajo en el enfoque de los sistemas agroalimentarios  localizados SIAL</td>
+                    </tr>
+                    
+                                <tr>
+                                    <td><li>&nbsp;</li></td>    
+                        <td><b>Especialización</b>
+                            UNIVERSIDAD DE CALDAS<br />
+                            Desarrollo Agroindustrial<br />
+                            Febrerode2007 - Diciembrede 2008<br />
+                            Estudio de Factibilidad del montaje de una planta agroindustrial para el aprovechamiento de la lombriz roja californiana en el municipio de Manizales.</td>
+                    </tr>
+                    
+                                <tr>
+                                    <td><li>&nbsp;</li></td>    
+                        <td><b>Pregrado/Universitario</b>
+                            UNIVERSIDAD DE CALDAS<br />
+                            Ingeniero Agrónomo<br />
+                            Agostode1998 - Juniode 2004<br />
+                            Análisis económico del cultivo de la Coca (Erhitroxylum coca) al oriente de Caldas. Un estudio de caso</td>
+                    </tr>
+                    
+                                <tr>
+                                    <td><li>&nbsp;</li></td>    
+                        <td><b>Perfeccionamiento</b>
+                            UNIVERSIDAD DE SAO PABLO<br />
+                            Programa de Pós-doutorado em Administração (Centro de Estudos das Organizações)<br />
+                            Febrerode2021 - Diciembrede 2021<br />
+                            </td>
+                    </tr>
+                    
+                </table>
+                
+                </td>
+                </tr>
+                <tr>        
+                    <td width="100%"><a name="formacion_comp"></a>
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td colspan="2"><h3>Formaci&oacute;n Complementaria</h3></td>
+                            </tr>   
+                            
+                            <tr>
+                                <td><li>&nbsp;</li></td>    
+                    <td><b>Otros</b>
+                        UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO<br />
+                        Pasantía Doctoral (Centro de Ciencias Aplicadas y Desarrollo Tecnológico)<br />
+                        Juliode2017 - Diciembrede 2017<br />
+                        </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>    
+                    <td><b>Otros</b>
+                        Universidad Autónoma Chapingo - CIESTAAM México<br />
+                        Pasantía Doctoral en Economía<br />
+                        Enerode2016 - Agostode 2016<br />
+                        </td>
+                </tr>
+                
+                </table>
+                
+                </td>
+                </tr>
+
+                <tr>        
+                    <td width="100%"><a name="estancias_posdoctorales"></a>
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td colspan="2"><h3>Estancias posdoctorales</h3></td>
+                            </tr>   
+                            
+                            <tr>
+                                <td style="width: 50px"> <li>&nbsp;</li></td>    
+                    <td><b>A cadeia de valor do café e sua transição para a sustentabilidade no Brasil e na Colômbia: uma análise a partir do sistema tecnológico de inovação</b>
+                        UNIVERSIDAD DE SAO PABLO<br />
+                        Programa de Pós-doutorado em Administração (Centro de Estudos das Organizações)<br />
+                        Desde: Febrero de 2021<br />
+                        
+                        Hasta: Diciembre de 2021<br/>
+                        
+                        A cadeia de valor do café e sua transição para a sustentabilidade no Brasil e na Colômbia: uma análise a partir do sistema tecnológico de inovação</td>
+                </tr>
+                
+                            <tr>
+                                <td style="width: 50px"> <li>&nbsp;</li></td>    
+                    <td><b>Análisis prospectivo estratégico de la cadena agroindustrial de cacao en Antioquia, a partir de un sistema territorial de innovación agrícola</b>
+                        UNIVERSIDAD DE ANTIOQUIA<br />
+                        Ciencias Agrarias: Area de Administración<br />
+                        Desde: Febrero de 2020<br />
+                        
+                        Hasta: Febrero de 2021<br/>
+                        
+                        Análisis prospectivo estratégico de la cadena agroindustrial de cacao en Antioquia, a partir de un sistema territorial de innovación agrícola</td>
+                </tr>
+                
+                </table>
+                
+                </td>
+                </tr> 
+
+                <tr>
+                    <td width="100%"><a name="experiencia"></a>
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td colspan="2"><h3 >Experiencia profesional</h3></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>UNIVERSIDAD DE CALDAS</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Agosto de 2022            
+                         de <br><br>   
+                                    
+                        
+                        <span class="blueTitle">Actividades de docencia</span><br>
+                                       
+                        - &nbsp;
+                        Pregrado            
+                        <i> - Nombre del curso:</i>&nbsp; Economía Agraria
+,&nbsp;40 
+                        Agosto 2022            
+                        Enero <br>
+
+                                       
+                        - &nbsp;
+                        Docencia/Enseñanza de Graduación            
+                        <i> - Nombre del curso:</i>&nbsp; Formulación y Evaluación de Proyectos
+,&nbsp;40 
+                        Agosto 2022            
+                        Enero <br>
+
+                        
+                        
+                        
+                        <span class="blueTitle">Actividades de investigación</span><br>
+                        
+                        - &nbsp;
+                        Investigación y Desarrollo
+                        <i> - Titulo:</i>&nbsp; Línea de Investigación: Innovación y Desarrollo Agroempresarial                            
+                        Agosto 2022            
+                         <br>            
+
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>Ministerio de Ciencia, Tecnología e Innovación - Minciencias</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Enero de 2022            
+                        Agosto de 2022<br><br>   
+                        
+                        <span class="blueTitle">Actividades de administración</span><br>
+                                            
+                        - &nbsp;Coordinador de programa            
+                        <i> - Cargo:</i>&nbsp;Lider de política pública y estrategia de formación de alto nivel          
+                        Enero de 2022            
+                        Enero de <br>
+
+                                    
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>ORGANIZACIÓN DE LAS NACIONES UNIDAS -FAO-</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Agosto de 2021            
+                        Diciembre de 2021<br><br>   
+                                    
+                        
+                        
+                        
+                        <span class="blueTitle">Actividades de investigación</span><br>
+                        
+                        - &nbsp;
+                        Investigación y Desarrollo
+                        <i> - Titulo:</i>&nbsp; Rural Innovation Specialist Consultant. 
+Carry out an evaluation of the Agricultural Innovation System in Colombia; throughout the functional, structural, capabilities and favorable environment analysis' for the innovation cases prioritized by the TAP-AIS Project.                            
+                        Agosto 2021            
+                         <br>            
+
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>UNIVERSIDAD DE ANTIOQUIA</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>48&nbsp;horas Semanales
+                        Febrero de 2020            
+                        Febrero de 2021<br><br>   
+                                    
+                        
+                        
+                        
+                        <span class="blueTitle">Actividades de investigación</span><br>
+                        
+                        - &nbsp;
+                        Investigación y Desarrollo
+                        <i> - Titulo:</i>&nbsp; Investigador PostDoctoral.
+Investigación: "Análisis prospectivo estratégico de la cadena agroindustrial de cacao en Antioquia, a partir de un sistema territorial de innovación agrícola"                            
+                        Febrero 2020            
+                        Febrero 2021<br>            
+
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>CORPORACION UNIVERSITARIA LASALLISTA</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>48&nbsp;horas Semanales
+                        Julio de 2020            
+                        Agosto de 2020<br><br>   
+                                    
+                        
+                        <span class="blueTitle">Actividades de docencia</span><br>
+                                       
+                        - &nbsp;
+                        Especialización            
+                        <i> - Nombre del curso:</i>&nbsp; Entorno Económico y Sectorial (Posgrado en Gerencia Agropecuaria),&nbsp;14 
+                        Julio 2020            
+                        Agosto 2020<br>
+
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>CORPORACION UNIVERSITARIA LASALLISTA</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>48&nbsp;horas Semanales
+                        Julio de 2019            
+                        Enero de 2020<br><br>   
+                        
+                        <span class="blueTitle">Actividades de administración</span><br>
+                                            
+                        - &nbsp;Otra actividad técnico-científica relevante            
+                        <i> - Cargo:</i>&nbsp;Facultad de Ciencias Administrativas y Agropecuarias          
+                        Julio de 2019            
+                        Enero de 2020<br>
+
+                                    
+                        
+                        <span class="blueTitle">Actividades de docencia</span><br>
+                                       
+                        - &nbsp;
+                        Pregrado            
+                        <i> - Nombre del curso:</i>&nbsp; Proyectos de Inversión,&nbsp;1 
+                        Julio 2019            
+                        Diciembre 2019<br>
+
+                                       
+                        - &nbsp;
+                        Pregrado            
+                        <i> - Nombre del curso:</i>&nbsp; Economía Sectorial Agroindustrial,&nbsp;1 
+                        Julio 2019            
+                        Diciembre 2019<br>
+
+                                       
+                        - &nbsp;
+                        Pregrado            
+                        <i> - Nombre del curso:</i>&nbsp; Principios de Administración,&nbsp;1 
+                        Julio 2019            
+                        Diciembre 2019<br>
+
+                                       
+                        - &nbsp;
+                        Pregrado            
+                        <i> - Nombre del curso:</i>&nbsp; Principios de Microeconomía,&nbsp;1 
+                        Julio 2019            
+                        Diciembre 2019<br>
+
+                                       
+                        - &nbsp;
+                        Pregrado            
+                        <i> - Nombre del curso:</i>&nbsp; Principios de Macroeconomía ,&nbsp;1 
+                        Julio 2019            
+                        Diciembre 2019<br>
+
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>ORGANIZACIÓN DE LAS NACIONES UNIDAS -FAO-</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Enero de 2018            
+                        Junio de 2019<br><br>   
+                        
+                        <span class="blueTitle">Actividades de administración</span><br>
+                                            
+                        - &nbsp;Miembro de comité asesor            
+                        <i> - Cargo:</i>&nbsp;Consultor en desarrollo de agronegocios          
+                        Enero de 2018            
+                        Abril de 2019<br>
+
+                                    
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>UNIVERSIDAD DE ANTIOQUIA</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>20&nbsp;horas Semanales
+                        Agosto de 2016            
+                        Febrero de 2017<br><br>   
+                        
+                        <span class="blueTitle">Actividades de administración</span><br>
+                                            
+                        - &nbsp;Miembro de comité asesor            
+                        <i> - Cargo:</i>&nbsp;Consultor para el diseño y validación de una metodología sobre estilos de aprendizaje aplicables al sector agropecuario Colombiano          
+                        Agosto de 2016            
+                        Febrero de 2017<br>
+
+                                    
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>FAO - Organización de Naciones Unidas para Agricultura y Alimentación</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>45&nbsp;horas Semanales
+                        Octubre de 2014            
+                        Febrero de 2015<br><br>   
+                        
+                        <span class="blueTitle">Actividades de administración</span><br>
+                                            
+                        - &nbsp;Miembro de comité asesor            
+                        <i> - Cargo:</i>&nbsp;Consultor en cadenas agroalimentarias y estudio de abastecimiento de alimentos en el Departamento de Antioquia          
+                        Octubre de 2014            
+                        Febrero de 2015<br>
+
+                                    
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>UNIVERSIDAD DE ANTIOQUIA</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>25&nbsp;horas Semanales
+                        Febrero de 2013            
+                        Septiembre de 2014<br><br>   
+                                    
+                        
+                        <span class="blueTitle">Actividades de docencia</span><br>
+                                       
+                        - &nbsp;
+                        Docencia/Enseñanza de Graduación            
+                        <i> - Nombre del curso:</i>&nbsp; Formulación de Proyectos,&nbsp;30 
+                        Febrero 2013            
+                         <br>
+
+                                       
+                        - &nbsp;
+                        Docencia/Enseñanza de Graduación            
+                        <i> - Nombre del curso:</i>&nbsp; Extensión Agropecuaria,&nbsp;40 
+                        Febrero 2013            
+                        Enero <br>
+
+                                       
+                        - &nbsp;
+                        Docencia/Enseñanza de Graduación            
+                        <i> - Nombre del curso:</i>&nbsp; Sociología Rural,&nbsp;20 
+                        Febrero 2013            
+                         <br>
+
+                                       
+                        - &nbsp;
+                        Docencia/Enseñanza de Graduación            
+                        <i> - Nombre del curso:</i>&nbsp; Mercadeo Agropecuario,&nbsp;20 
+                        Febrero 2013            
+                         <br>
+
+                        
+                        
+                        
+                        <span class="blueTitle">Actividades de investigación</span><br>
+                        
+                        - &nbsp;
+                        Investigación y Desarrollo
+                        <i> - Titulo:</i>&nbsp; Estudios de la adopción tecnológica en la ganadería de leche al Norte de Antioquia                            
+                        Febrero 2013            
+                         <br>            
+
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>SERVICIO NACIONAL DE APRENDIZAJE SENA</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Octubre de 2013            
+                        Julio de 2014<br><br>   
+                        
+                        <span class="blueTitle">Actividades de administración</span><br>
+                                            
+                        - &nbsp;Consultor            
+                        <i> - Cargo:</i>&nbsp;Consultor líder de equipo técnico y pedagógico para la formulación de programas educativos tecnologicos en proyectos agropecuarios          
+                        Octubre de 2013            
+                        Julio de 2014<br>
+
+                                    
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>Programa Nacional de Formación en Extensión Rural</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Septiembre de 2012            
+                        Febrero de 2013<br><br>   
+                                    
+                        
+                        <span class="blueTitle">Actividades de docencia</span><br>
+                                       
+                        - &nbsp;
+                        Capacitación/Entrenamientos dictados            
+                        <i> - Nombre del curso:</i>&nbsp; Taller de formación y certificación en extensión rural con profesionales del sector agropecuario,&nbsp;70 
+                        Septiembre 2012            
+                         <br>
+
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>UNIVERSIDAD DE CALDAS</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Febrero de 2011            
+                        Diciembre de 2011<br><br>   
+                        
+                        <span class="blueTitle">Actividades de administración</span><br>
+                                            
+                        - &nbsp;Coordinador de programa            
+                        <i> - Cargo:</i>&nbsp;Director de programa Administracion de Empresas Agropecuarias          
+                        Febrero de 2011            
+                        Diciembre de 2011<br>
+
+                                    
+                        
+                        <span class="blueTitle">Actividades de docencia</span><br>
+                                       
+                        - &nbsp;
+                        Docencia/Enseñanza de Graduación            
+                        <i> - Nombre del curso:</i>&nbsp; Gestión Empresarial,&nbsp;0 
+                        Febrero 2011            
+                        Diciembre 2011<br>
+
+                                       
+                        - &nbsp;
+                        Docencia/Enseñanza de Graduación            
+                        <i> - Nombre del curso:</i>&nbsp; Fundamentos de Agroindustria,&nbsp;40 
+                        Febrero 2011            
+                        Diciembre 2011<br>
+
+                                       
+                        - &nbsp;
+                        Docencia/Enseñanza de Graduación            
+                        <i> - Nombre del curso:</i>&nbsp; Políticas Públicas Agropecuarias,&nbsp;20 
+                        Mayo 2011            
+                        Septiembre 2011<br>
+
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>SERVICIO NACIONAL DE APRENDIZAJE SENA</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Septiembre de 2007            
+                        Diciembre de 2010<br><br>   
+                                    
+                        
+                        <span class="blueTitle">Actividades de docencia</span><br>
+                                       
+                        - &nbsp;
+                        Otro            
+                        <i> - Nombre del curso:</i>&nbsp; Producción agrícola
+
+Emprendimiento y planes de negocio,&nbsp;0 
+                        Octubre 2007            
+                        Diciembre 2010<br>
+
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>UNIVERSIDAD DE CALDAS</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>4&nbsp;horas Semestrales
+                        Mayo de 2010            
+                        Septiembre de 2010<br><br>   
+                                    
+                        
+                        <span class="blueTitle">Actividades de docencia</span><br>
+                                       
+                        - &nbsp;
+                        Pregrado            
+                        <i> - Nombre del curso:</i>&nbsp; Políticas Publicas y
+
+Seguridad alimentaria,&nbsp;0 
+                        Mayo 2010            
+                        Septiembre 2010<br>
+
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>Secretaria De Salud Y Seguridad Social De Manizales</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Enero de 2007            
+                        Septiembre de 2007<br><br>   
+                                    
+                        
+                        <span class="blueTitle">Actividades de docencia</span><br>
+                                       
+                        - &nbsp;
+                        Docencia/Enseñanza secundaria            
+                        <i> - Nombre del curso:</i>&nbsp; Administración rural y
+Agricultura,&nbsp;0 
+                        Enero 2007            
+                        Septiembre 2007<br>
+
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>Secretaria De Salud Y Seguridad Social De Manizales</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Abril de 2006            
+                        Diciembre de 2006<br><br>   
+                                    
+                        
+                        <span class="blueTitle">Actividades de docencia</span><br>
+                                       
+                        - &nbsp;
+                        Docencia/Enseñanza secundaria            
+                        <i> - Nombre del curso:</i>&nbsp; Administración rural, Agricultura,&nbsp;0 
+                        Abril 2006            
+                        Noviembre 2006<br>
+
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>COOPERATIVA DE CAFICULTORES DE ANSERMA LTDA</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Mayo de 2005            
+                        Octubre de 2005<br><br>   
+                                    
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                </table>
+                
+                </td>
+                </tr>
+                <tr>        
+                    <td width="100%"><a name="otra_info_personal"></a>
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3 >&Aacute;reas de actuaci&oacute;n</h3></td>
+                            </tr>        
+                                   
+                            <tr>
+                                <td><li>&nbsp;Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agronomía</li></td>
+                </tr>            
+                       
+                            <tr>
+                                <td><li>&nbsp;Ingeniería y Tecnología -- Otras Ingenierías y Tecnologías -- Alimentos y Bebidas</li></td>
+                </tr>            
+                       
+                            <tr>
+                                <td><li>&nbsp;Ciencias Sociales -- Economía y Negocios -- Negocios y Management</li></td>
+                </tr>            
+                       
+                            <tr>
+                                <td><li>&nbsp;Ciencias Sociales -- Economía y Negocios -- Relaciones Industriales</li></td>
+                </tr>            
+                       
+                            <tr>
+                                <td><li>&nbsp;Ciencias Sociales -- Economía y Negocios -- Economía</li></td>
+                </tr>            
+                       
+                            <tr>
+                                <td><li>&nbsp;Ingeniería y Tecnología -- Otras Ingenierías y Tecnologías -- Otras Ingenierías y Tecnologías</li></td>
+                </tr>            
+                
+                </table>
+                </td>
+                </tr>
+                <tr>        
+                    <td width="100%">
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td colspan="5"><h3 >Idiomas</h3></td>
+                            </tr>    
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><b>Habla</b></td>
+                                <td><b>Escribe</b></td>
+                                <td><b>Lee</b></td>
+                                <td><b>Entiende</b></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><li>&nbsp;Inglés</li></td>
+                    <td>Bueno</td>
+                    <td>Aceptable</td>
+                    <td>Bueno</td>
+                    <td>Bueno</td>                                                        
+                </tr>    
+                
+                            <tr>
+                                <td><li>&nbsp;Portugués</li></td>
+                    <td>Bueno</td>
+                    <td>Aceptable</td>
+                    <td>Bueno</td>
+                    <td>Bueno</td>                                                        
+                </tr>    
+                
+                </table>
+                </td>
+                </tr>
+                <tr>        
+                    <td width="100%">
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3 >L&iacute;neas de investigaci&oacute;n</h3></td>
+                            </tr>
+                                    
+                            <tr>
+                                <td><li>&nbsp;Innovación y Desarrollo en el sector Agroindustrial, <i>Activa:</i>Si</li></td>
+                </tr>        
+                        
+                            <tr>
+                                <td><li>&nbsp;Gestión del conocimiento en el sector Agroindustrial, <i>Activa:</i>Si</li></td>
+                </tr>        
+                        
+                            <tr>
+                                <td><li>&nbsp;Desarrollo Económico Sostenible, <i>Activa:</i>Si</li></td>
+                </tr>        
+                        
+                            <tr>
+                                <td><li>&nbsp;Innovación Rural, <i>Activa:</i>Si</li></td>
+                </tr>        
+                        
+                            <tr>
+                                <td><li>&nbsp;Análisis de Cadenas Agroindustriales, <i>Activa:</i>Si</li></td>
+                </tr>        
+                
+                </table>
+                </td>
+                </tr>
+                <tr>        
+                    <td width="100%">
+
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3 >Reconocimientos</h3></td>
+                            </tr>
+                                
+                            <tr>
+                                <td><li>Reconocimiento por labor académica de proyeccion e impacto en la sociedad por la dirección del programa "La universidad en el Campo",UNIVERSIDAD DE CALDAS - Mayode 2011</li></td>
+                </tr>
+                    
+                            <tr>
+                                <td><li>Proyecto Postdoctoral seleccionado en la convocatoria 848 del año 2019 (MinCiencias),Ministerio de Ciencia, Tecnología e Innovación. - Febrerode 2020</li></td>
+                </tr>
+                    
+                            <tr>
+                                <td><li>Beca "Generación del Bicentenario-Francisco José de Caldas"- Estudios a nivel de Doctorados en Colombia,Departamento Administrativo de Ciencia, Tecnología e Innovación, Colciencias , - Enerode 2015</li></td>
+                </tr>
+                
+                </table>
+                </td>
+                </tr>
+                <tr>
+                    <td width="100%" align="right">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><blockquote class="fillText">Los ítems de producción con la marca  <img src='/cvlac/images/chulo.jpg' height="15px" width="15px"> corresponden a productos avalados y validados para la última <i>Convocatoria Nacional para el Reconocimiento y Medición de Grupos de Investigación, Desarrollo Tecnológico o de Innovación y para el Reconocimiento de Investigadores del SNCTeI</i></blockquote></td>
+                </tr>        
+                <!--Inicio asesorias-->
+                <tr>        
+                    <td width="100%"><a name="asesorias"></a></td>
+                </tr>
+                <!--Fin asesorias-->
+                <!--Inicio curso corta -->
+                <tr>        
+                    <td width="100%"><a name="curso_corta_du"></a></td>
+                </tr>
+                <!--Fin curso corta-->
+                <!--Inicio trabajos dirigidos-->
+                <tr>
+                    <td width="100%"><a name="trabajos_dirigi"></a>    <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3>Trabajos dirigidos/tutor&iacute;as</h3></td>
+                            </tr>
+                             
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Monografía de conclusión de curso de perfeccionamiento/especialización</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            CARLOS JULIAN RAMIREZ GOMEZ,                    
+                            
+                            Uso de taninos provenientes del banano de rechazo como método alternativo para la curtición del cuero (Persona Orientada: Santiago Gil)&nbsp;
+                            CORPORACION UNIVERSITARIA LASALLISTA&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            Especialización en Gerencia Agropecuaria,
+                            &nbsp;2018.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): CARLOS JULIAN RAMIREZ GOMEZ,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agronomía,
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            CARLOS JULIAN RAMIREZ GOMEZ,                    
+                            
+                            Análisis de capacidades y del perfil emprendedor de jóvenes rurales del programa ¿La Universidad en tu territorio¿.&nbsp;
+                            UNIVERSIDAD DE CALDAS&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            AGRONOMIA,
+                            &nbsp;2023.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Ingrid Tatiana Jimenez Melo
+                                                        
+                            
+                            
+                            Tutor(es)/Cotutor(es): CARLOS JULIAN RAMIREZ GOMEZ,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agricultura,
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            CARLOS JULIAN RAMIREZ GOMEZ,                    
+                            
+                            ANÁLISIS DE MERCADO Y DE ESTRATEGIAS PARA LA PRODUCCIÓN Y COMERCIALIZACIÓN DE SNACKS A BASE DE FRUTAS DESHIDRATADAS Y FRUTOS SECOS BAJO LA MARCA ¿ALLNATURAL HEALTHY FOOD¿.&nbsp;
+                            UNIVERSIDAD DE CALDAS&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            AGRONOMIA,
+                            &nbsp;2023.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Nicolás Duque Sánchez
+                                                        
+                            
+                            
+                            Tutor(es)/Cotutor(es): CARLOS JULIAN RAMIREZ GOMEZ,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agricultura,
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajo de grado de maestría o especialidad clínica</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            CARLOS JULIAN RAMIREZ GOMEZ,                    
+                            
+                            Factores influyentes en la adopción de prácticas sostenibles en sistemas de producción agropecuaria en los habitantes de la cuenca alta del rio Chinchiná y áreas de abastecimiento hídrico de la ciudad de Manizales&nbsp;
+                            UNIVERSIDAD DE CALDAS&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            MAESTRIA EN SOCIEDADES RURALES,
+                            &nbsp;2022.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Andres Garcia Cuervo
+                                                        
+                            
+                            
+                            Tutor(es)/Cotutor(es): CARLOS JULIAN RAMIREZ GOMEZ,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Psicología -- Psicología (Incluye Relaciones Hombre-Máquina),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            CARLOS JULIAN RAMIREZ GOMEZ,                    
+                            
+                            Análisis de la capacidad organizacional de la asociación de productores de Plátano (Asproagro) en el municipio de Argelia Valle del Cauca&nbsp;
+                            UNIVERSIDAD DE CALDAS&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            AGRONOMIA,
+                            &nbsp;2023.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Cristian Paz
+                                                        
+                            
+                            
+                            Tutor(es)/Cotutor(es): CARLOS JULIAN RAMIREZ GOMEZ,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agricultura,
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            CARLOS JULIAN RAMIREZ GOMEZ,                    
+                            
+                            Percepciones de los pequeños productores de café frente a las certificaciones de calidad en el municipio de Quinchía, Risaralda&nbsp;
+                            UNIVERSIDAD DE CALDAS&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            AGRONOMIA,
+                            &nbsp;2024.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Jonathan Stiven Ospina Jaramillo
+                            Maria Paulina Hoyos López
+                                                        
+                            
+                            
+                            Tutor(es)/Cotutor(es): CARLOS JULIAN RAMIREZ GOMEZ,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agricultura,
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                        
+                </table>    
+                </td>
+                </tr> 
+                <!--Fin trabajos dirigidos-->
+                <tr>
+                    <td width="100%" align="right">&nbsp;</td>
+                </tr>
+                <!--Inicio jurados-->
+                <tr>
+                    <td width="100%"><a name="jurado"></a>
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3 >Jurado en comit&eacute;s de evaluaci&oacute;n</h3></td>
+                            </tr>
+                                
+                            <tr>
+                                <td><li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Maestría</b></li></td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                
+                            CARLOS JULIAN RAMIREZ GOMEZ,                    
+                            
+                            <i>Titulo:&nbsp;</i>Propuesta de construcción de una estrategia participativa para el mejoramiento, avance y desarrollo sostenible de la ganadería de doble propósito y la agregación de valor de los productos locales en el Municipio de Anorí, Antioquia, Colombia                
+                            <i>Tipo de trabajo presentado:&nbsp;</i>Proyecto de grado/Tesis
+                            <i>en:&nbsp;</i> UNIVERSIDAD PONTIFICIA BOLIVARIANA&nbsp;
+                            <i>programa acad&eacute;mico</i> Innovación en Agronegocios&nbsp;
+                            <i>Nombre del orientado:&nbsp;</i> &nbsp;                
+                            
+                            
+                            
+                                           
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agricultura,                    
+                            
+                            
+                            
+
+                        </blockquote>
+                    </td>
+                </tr>
+                    
+                            <tr>
+                                <td><li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Maestría</b></li></td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                
+                            CARLOS JULIAN RAMIREZ GOMEZ,                    
+                            
+                            <i>Titulo:&nbsp;</i>Clasificación de híbridos sobresalientes de cacao cultivados en el departamento de Antioquia según la composición y perfil de metabolitos para la conformación de una colección élite                
+                            <i>Tipo de trabajo presentado:&nbsp;</i>Trabajo de grado/tesis
+                            <i>en:&nbsp;</i> CORPORACION UNIVERSITARIA LASALLISTA&nbsp;
+                            <i>programa acad&eacute;mico</i> Poscosecha Hortofrutícola&nbsp;
+                            <i>Nombre del orientado:&nbsp;</i> &nbsp;                
+                            
+                            
+                            
+                                           
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agricultura,                    
+                            
+                            
+                            
+
+                        </blockquote>
+                    </td>
+                </tr>
+                    
+                            <tr>
+                                <td><li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Maestría</b></li></td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                
+                            CARLOS JULIAN RAMIREZ GOMEZ,                    
+                            
+                            <i>Titulo:&nbsp;</i>Evaluación del uso de diferentes tecnologías poscosecha y su efecto sobre la calidad y vida útil en frutos del género de las pasifloras                
+                            <i>Tipo de trabajo presentado:&nbsp;</i>Trabajo de grado/tesis
+                            <i>en:&nbsp;</i> CORPORACION UNIVERSITARIA LASALLISTA&nbsp;
+                            <i>programa acad&eacute;mico</i> Poscosecha Hortofrutícola&nbsp;
+                            <i>Nombre del orientado:&nbsp;</i> &nbsp;                
+                            
+                            
+                            
+                                           
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agricultura,                    
+                            
+                            
+                            
+
+                        </blockquote>
+                    </td>
+                </tr>
+                
+                </table>
+                </td>
+                </tr>
+                <!--Fin jurados-->
+                <!--Inicio Participacion comite-->
+                <tr>
+                    <td width="100%"><a name="comite"></a></td>
+                </tr>
+                <!--Fin particiacion comite-->
+                <!--Inicio par evaluador-->
+                <tr>
+                    <td><a name="par"></a>    <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3>Par evaluador</h3></td>
+                            </tr>
+                                
+                            <tr>
+                                <td>
+                                    <blockquote>
+                                        <i>&Aacute;mbito: </i>Nacional&nbsp;
+                                        <i>Par evaluador de: </i>Material para publicaci&oacute;n cient&iacute;fica&nbsp;
+                                                                        
+                                        <i>Editorial: </i>CORPOICA,&nbsp;
+                                        
+                                        2014,&nbsp;
+                                        Septiembre &nbsp;
+                                    </blockquote>
+                                </td>                         
+                            </tr>            
+                                    
+                        </table>    
+                        </td>
+                </tr>
+                <!--Fin par evaluador-->
+                <!--Inicio Consultorias -->
+                <tr>       
+                    <td width="100%"></td>
+                </tr>
+                <!--Fin Consultorias-->
+                <!--Inicio edicion-->
+                <tr>        
+                    <td width="100%"><a name="edicion"></a></td>
+                </tr>
+                <!--Fin edicion-->
+                <!--Inicio eventos cientificos-->
+                <tr>        
+                    <td width="100%"><a name="evento"></a>
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3>Eventos cient&iacute;ficos</h3></td>
+                            </tr>
+                                
+                            <tr>
+                                <td> 
+                                    <table>           
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>1</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>CONGRESO INTERNACIONAL DE LA SOCIEDAD DE HISTORIA DE LA EDUCACIÓN LATINOAMERICANA&nbsp;
+                                                <i>Tipo de evento: </i>Congreso&nbsp;
+                                                <i>&Aacute;mbito: </i>&nbsp;                
+                                                <i>Realizado el:2011-08-01 00:00:00.0,&nbsp;
+                                                     &nbsp;
+                                                    en MANIZALES &nbsp; -  &nbsp;
+                                            </td>                         				
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Productos asociados</b><br>
+                                                
+                                                <ul>
+                                                    <li><i>Nombre del producto:</i>Hacia la perspectiva del desarrollo: Una propuesta de educación rural en Caldas y Latinoamérica
+                                                        <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Completo
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Participantes</b><br>
+                                                
+                                                <ul><li><i>Nombre: </i>CARLOS JULIAN RAMIREZ GOMEZ
+                                                        <i>Rol en el evento: </i>Asistente
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>   
+                                </td>                         				
+                            </tr>          
+                                
+                            <tr>
+                                <td> 
+                                    <table>           
+                                        <tr>
+                                            <td>
+                                                
+                                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                                
+                                                <b>2</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Seminario Internacional Agricultura de Conservación en Tierras de Ladera&nbsp;
+                                                <i>Tipo de evento: </i>Seminario&nbsp;
+                                                <i>&Aacute;mbito: </i>Internacional&nbsp;                
+                                                <i>Realizado el:2003-01-01 00:00:00.0,&nbsp;
+                                                     &nbsp;
+                                                    en MANIZALES &nbsp; - Manizales -Caldas &nbsp;
+                                            </td>                         				
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Instituciones asociadas</b><br>					
+                                                
+                                                <ul><li><i>Nombre de la instituci&oacute;n:</i>UNIVERSIDAD DE CALDAS
+                                                        <i>Tipo de vinculaci&oacute;n</i>Patrocinadora</li></ul>
+                                                        
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Participantes</b><br>
+                                                
+                                                <ul><li><i>Nombre: </i>CARLOS JULIAN RAMIREZ GOMEZ
+                                                        <i>Rol en el evento: </i>Organizador
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>   
+                                </td>                         				
+                            </tr>          
+                                
+                            <tr>
+                                <td> 
+                                    <table>           
+                                        <tr>
+                                            <td>
+                                                
+                                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                                
+                                                <b>3</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>XVII seminario internacional de desarrollo rural "Mundos rurales y transformaciones globales"&nbsp;
+                                                <i>Tipo de evento: </i>Seminario&nbsp;
+                                                <i>&Aacute;mbito: </i>Internacional&nbsp;                
+                                                <i>Realizado el:2011-01-01 00:00:00.0,&nbsp;
+                                                     &nbsp;
+                                                    en BOGOTÁ, D.C. &nbsp; - Pontificia Universidad Javeriana &nbsp;
+                                            </td>                         				
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Instituciones asociadas</b><br>					
+                                                
+                                                <ul><li><i>Nombre de la instituci&oacute;n:</i>PONTIFICIA UNIVERSIDAD JAVERIANA
+                                                        <i>Tipo de vinculaci&oacute;n</i>Patrocinadora</li></ul>
+                                                        
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Participantes</b><br>
+                                                
+                                                <ul><li><i>Nombre: </i>CARLOS JULIAN RAMIREZ GOMEZ
+                                                        <i>Rol en el evento: </i>Organizador
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>   
+                                </td>                         				
+                            </tr>          
+                             
+                        </table> 
+                        </td>
+                </tr>
+                <!--Fin eventos cientificos-->
+                <!--Inicio redes de conocimiento-->
+                <tr>        
+                    <td width="100%"><a name="re_co"></a></td>
+                </tr>
+                <!--Fin redes de conocimiento-->
+                
+                <!--Inicio ProyectosExtensionRespSoc-->
+                <tr>        
+                    <td width="100%"><a name="pr_ex_re"></a></td>
+                </tr>
+                <!--Fin ProyectosExtensionRespSoc-->
+                
+
+                <!--               //  //APROPIACION FORTALECIMIENTOS-->
+                <tr>
+                    <td width="100%"><a name="asc_for"></a></td>
+                </tr>
+
+                <!--                FIN FORTALECIMIENTOS-->
+
+                <!--               //  //APROPIACION TRABAJOS-->
+                <tr>
+                    <td width="100%"><a name="asc_tra"></a></td>
+                </tr>
+
+                <!--                FIN TRABAJOS-->
+
+                <!-- APROPIACION GENERACION-->
+                <tr>
+                    <td width="100%"><a name="asc_gen"></a></td>
+                </tr>
+
+                <!--                FIN GENERACION-->
+
+                <!-- APROPIACION CADENAS-->
+                <tr>
+                    <td width="100%"><a name="asc_cad"></a></td>
+                </tr>
+
+                <!--                FIN CADENAS-->
+
+                <!-- DIVULGACION CONTENIDO EDITORIAL-->
+                <tr>
+                    <td width="100%"><a name="div_ced"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO EDITORIAL-->
+
+                <!-- DIVULGACION CONTENIDO AUDIOVISUAL -->
+                <tr>
+                    <td width="100%"><a name="div_cda"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO AUDIOVISUAL-->
+
+                <!-- DIVULGACION CONTENIDO SONORO -->
+                <tr>
+                    <td width="100%"><a name="div_cds"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO SONORO-->
+
+                <!-- DIVULGACION CONTENIDO RECURSOS -->
+                <tr>
+                    <td width="100%"><a name="div_cdr"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO RECURSOS-->
+
+                <!-- DIVULGACION TRANSMEDIA -->
+                <tr>
+                    <td width="100%"><a name="div_ctr"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO TRANSMEDIA-->
+
+                <!-- DIVULGACION DESARROLLO WEB  -->
+                <tr>
+                    <td width="100%"><a name="div_des"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO RECURSOS-->
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+        
+
+        <!--Inicio Articulos-->				   	
+    <tr>        
+        <td width="100%"><a name="articulos"></a>         
+
+            <table width="100%" style="border:#999 1px solid">
+                <tr>
+                    <td><h3 >Art&iacute;culos</h3></td>
+                </tr>
+                
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "Analisis económico del cultivo de la coca (Erithroxylum coca) en el oriente del departamento de Caldas"
+                . En: Colombia&nbsp;<br>
+                Ideas Ambientales (Online)&nbsp;
+                <i>ISSN:</i>&nbsp;1794-8908&nbsp;
+                <i>ed:</i>&nbsp;Universidad Nacionalde Colombia<br>
+                <i>v.</i>2
+                <i>fasc.</i>N/A
+                p.N/A
+                - 
+                ,2006,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                    
+                ANDRES GARCIA CUERVO,                    
+                
+                "Nuevas tendencias de extensión rural para el desarrollo de capacidades de autogestión"
+                . En: Colombia&nbsp;<br>
+                CIENCIA TECNOLOGIA AGROPECUARIA&nbsp;
+                <i>ISSN:</i>&nbsp;0122-8706&nbsp;
+                <i>ed:</i>&nbsp;Colombian Corporation of Agricultural Research (Corpoica)<br>
+                <i>v.</i>17
+                <i>fasc.</i>1
+                p.31
+                - 42
+                ,2016,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+                <br><b>Palabras: </b><br>
+                                    
+                Desarrollo Rural,                    
+                                    
+                Adopción Tecnológica,                    
+                                    
+                Transferencia de tecnología,                    
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "Ana&#769;lisis de la sostenibilidad de los procesos de fortalecimiento de la asociatividad rural: El caso de Asomora"
+                . En: Colombia&nbsp;<br>
+                REVISTA DE CIENCIAS AGRICOLAS&nbsp;
+                <i>ISSN:</i>&nbsp;0120-0135&nbsp;
+                <i>ed:</i>&nbsp;<br>
+                <i>v.</i>33
+                <i>fasc.</i>1
+                p.10
+                - 22
+                ,2016,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                
+                "Influencia de los recursos y las dinámicas del territorio en el sostenimiento de la agroindustria rural panelera de Supía, Caldas"
+                . En: Colombia&nbsp;<br>
+                REVISTA LUNA AZUL&nbsp;
+                <i>ISSN:</i>&nbsp;1909-2474&nbsp;
+                <i>ed:</i>&nbsp;Universidad De Caldas<br>
+                <i>v.</i>44
+                <i>fasc.</i>
+                p.188
+                - 210
+                ,2017,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                    
+                NICOLAS DUQUE SANCHEZ,                    
+                                    
+                CRISTIAN PAZ,                    
+                
+                "Network analysis of knowledge building on rural extension in Colombia"
+                . En: Colombia&nbsp;<br>
+                AGRONOMIA COLOMBIANA&nbsp;
+                <i>ISSN:</i>&nbsp;2357-3732&nbsp;
+                <i>ed:</i>&nbsp;Universidad Nacionalde Colombia<br>
+                <i>v.</i>34
+                <i>fasc.</i>3
+                p.393
+                - 402
+                ,2016,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+                <br><b>Palabras: </b><br>
+                                    
+                knowledge  management,,                    
+                                    
+                rural development,                    
+                                    
+                social network analysis,                    
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                    
+                ANDRES GARCIA CUERVO,                    
+                
+                "Factores Determinantes de la Sostenibilidad de las Agroempresas Asociativas Rurales"
+                . En: Brasil&nbsp;<br>
+                Revista de Economia e Sociologia Rural&nbsp;
+                <i>ISSN:</i>&nbsp;1806-9479&nbsp;
+                <i>ed:</i>&nbsp;Sociedade Brasileira de Economia e Sociologia Rural<br>
+                <i>v.</i>56
+                <i>fasc.</i>1
+                p.107
+                - 122
+                ,2018,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+                <br><b>Palabras: </b><br>
+                                    
+                Asociatividad agroempresarial,                    
+                                    
+                Desarrollo Rural,                    
+                                    
+                Análisis Multivariado,                    
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                    
+                ANDRES GARCIA CUERVO,                    
+                
+                "Análisis compartivo de la dinámica de desarrollo agrícola en Suramérica en el período 1980-2010"
+                . En: Colombia&nbsp;<br>
+                REVISTA LUNA AZUL&nbsp;
+                <i>ISSN:</i>&nbsp;1909-2474&nbsp;
+                <i>ed:</i>&nbsp;Universidad De Caldas<br>
+                <i>v.</i>42
+                <i>fasc.</i>N/A
+                p.15
+                - 29
+                ,2016,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+                <br><b>Palabras: </b><br>
+                                    
+                Desarrollo Rural,                    
+                                    
+                Política Agraria,                    
+                                    
+                Análisis Multivariado,                    
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "Lineamientos para una metodología de identificación de estilos de aprendizaje aplicables al sector agropecuario colombiano"
+                . En: Colombia&nbsp;<br>
+                CIENCIA TECNOLOGIA AGROPECUARIA&nbsp;
+                <i>ISSN:</i>&nbsp;2500-5308&nbsp;
+                <i>ed:</i>&nbsp;Colombian Corporation of Agricultural Research (Corpoica)<br>
+                <i>v.</i>21
+                <i>fasc.</i>3
+                p.1
+                - 19
+                ,2020,
+                <i>&nbsp;DOI:&nbsp;</i>10.21930/rcta.vol21_num3_art:1050
+                
+                
+                <br><b>Palabras: </b><br>
+                                    
+                Métodos de enseñanza,                    
+                                    
+                Aprendizaje de agricultores,                    
+                                    
+                Desarrollo Rural,                    
+                                    
+                Adopción Tecnológica,                    
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                    
+                CRISTIAN PAZ,                    
+                
+                "Trust networks and innovation dynamics of small farmers in Colombia: An approach from territorial system of agricultural innovation"
+                . En: Argentina&nbsp;<br>
+                REVISTA DE LA FACULTAD DE CIENCIAS AGRARIAS&nbsp;
+                <i>ISSN:</i>&nbsp;1853-8665&nbsp;
+                <i>ed:</i>&nbsp;UNIV NACIONAL CUYO, FAC CIENCIAS AGRARIAS<br>
+                <i>v.</i>2
+                <i>fasc.</i>56
+                p.253
+                - 255
+                ,2020,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                
+                "Local Public-Private Partnerships to Promote Innovation in Agricultural Value Chains The Case of Cocoa in Colombia"
+                . En: Brasil&nbsp;<br>
+                REVISTA DE ECONOMIA E SOCIOLOGIA RURAL&nbsp;
+                <i>ISSN:</i>&nbsp;0103-2003&nbsp;
+                <i>ed:</i>&nbsp;Sociedade Brasileira de Economia e Sociologia Rural<br>
+                <i>v.</i>60
+                <i>fasc.</i>4
+                p.1
+                - 18
+                ,2022,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "The coffee value chain and its transition to sustainability in Brazil and Colombia from innovation system approach"
+                . En: Reino Unido&nbsp;<br>
+                INTERNATIONAL JOURNAL OF AGRICULTURAL SUSTAINABILITY&nbsp;
+                <i>ISSN:</i>&nbsp;1747-762X&nbsp;
+                <i>ed:</i>&nbsp;Taylor & Francis Ltd<br>
+                <i>v.</i>20
+                <i>fasc.</i>NA
+                p.1
+                - 16
+                ,2022,
+                <i>&nbsp;DOI:&nbsp;</i>10.1080/14735903.2022.2065794
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                
+                "Farmer, Learning and Teaching: A cluster analysis of technology adopters in avocado farming in Colombia"
+                . En: México&nbsp;<br>
+                TROPICAL AND SUBTROPICAL AGROECOSYSTEMS&nbsp;
+                <i>ISSN:</i>&nbsp;1870-0462&nbsp;
+                <i>ed:</i>&nbsp;Universidad Autonoma De Yucatan<br>
+                <i>v.</i>1
+                <i>fasc.</i>N/A
+                p.1
+                - 10
+                ,2023,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "Adopción de tecnología y agroempresas asociativas rurales: un análisis desde el capital social territorial"
+                . En: Colombia&nbsp;<br>
+                REVISTA U D C A ACTUALIDAD AND DIVULGACION CIENTIFICA&nbsp;
+                <i>ISSN:</i>&nbsp;2619-2551&nbsp;
+                <i>ed:</i>&nbsp;Universidad de Ciencias Aplicadas y Ambientales- U-D-C-A<br>
+                <i>v.</i>25
+                <i>fasc.</i>2
+                p.1
+                - 10
+                ,2022,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "LA MULTIFUNCIONALIDAD DE LAS ORGANIZACIONES ASOCIATIVAS RURALES"
+                . En: México&nbsp;<br>
+                TROPICAL AND SUBTROPICAL AGROECOSYSTEMS&nbsp;
+                <i>ISSN:</i>&nbsp;1870-0462&nbsp;
+                <i>ed:</i>&nbsp;Universidad Autonoma De Yucatan<br>
+                <i>v.</i>26
+                <i>fasc.</i>2
+                p.1
+                - 15
+                ,2023,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+                <br><b>Palabras: </b><br>
+                                    
+                Asociatividad agroempresarial,                    
+                                    
+                Desarrollo Rural,                    
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "Redes de información y sistemas de innovación agrícolas: Hacia un nuevo enfoque de la extensión rural local"
+                . En: España&nbsp;<br>
+                ECONOMIA AGRARIA Y RECURSOS NATURALES&nbsp;
+                <i>ISSN:</i>&nbsp;2174-7350&nbsp;
+                <i>ed:</i>&nbsp;Universidad Politécnica de Valencia<br>
+                <i>v.</i>23
+                <i>fasc.</i>1
+                p.157
+                - 178
+                ,2023,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+                <br><b>Palabras: </b><br>
+                                    
+                Gestión de innovación,                    
+                                    
+                Extensión rural,                    
+                                    
+                Gestión tecnológica,                    
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "Desempenho da plataforma de inovação para o desenvolvimento da cadeia láctea em nível regional na Colômbia"
+                . En: Brasil&nbsp;<br>
+                REVISTA DE CIENCIAS AGROVETERINARIAS&nbsp;
+                <i>ISSN:</i>&nbsp;2238-1171&nbsp;
+                <i>ed:</i>&nbsp;Universidade Do Estado de Santa Catarina<br>
+                <i>v.</i>3
+                <i>fasc.</i>
+                p.475
+                - 483
+                ,2023,
+                <i>&nbsp;DOI:&nbsp;</i>10.5965/223811712232023475
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "Scenarios to promote territorial innovation systems in agri-food value chains: case of cocoa in Colombia"
+                . En: Reino Unido&nbsp;<br>
+                JOURNAL OF AGRICULTURAL EDUCATION EXTENSION&nbsp;
+                <i>ISSN:</i>&nbsp;1389-224X&nbsp;
+                <i>ed:</i>&nbsp;ROUTLEDGE JOURNALS, TAYLOR & FRANCIS LTD<br>
+                <i>v.</i>3
+                <i>fasc.</i>
+                p.1
+                - 21
+                ,2023,
+                <i>&nbsp;DOI:&nbsp;</i>10.1080/1389224X.2023.2223534
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "La agregación de valor en organizaciones de agricultura familiar en Nariño, Colombia"
+                . En: Colombia&nbsp;<br>
+                REVISTA U D C A ACTUALIDAD AND DIVULGACION CIENTIFICA&nbsp;
+                <i>ISSN:</i>&nbsp;2619-2551&nbsp;
+                <i>ed:</i>&nbsp;Universidad de Ciencias Aplicadas y Ambientales- U-D-C-A<br>
+                <i>v.</i>27
+                <i>fasc.</i>1
+                p.1
+                - 8
+                ,2024,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "Percepções de aprendizagem dos agricultores através de visitas guiadas a associações de produtores de leite na Colômbia"
+                . En: Brasil&nbsp;<br>
+                REVISTA DE CIENCIAS AGROVETERINARIAS&nbsp;
+                <i>ISSN:</i>&nbsp;2238-1171&nbsp;
+                <i>ed:</i>&nbsp;Universidade Do Estado de Santa Catarina<br>
+                <i>v.</i>23
+                <i>fasc.</i>N/A
+                p.502
+                - 510
+                ,2024,
+                <i>&nbsp;DOI:&nbsp;</i>10.5965/223811712332024502revistas.udesc.br
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "La Universidad en el campo: Hacia una educación superior de la juventud rural"
+                . En: Colombia&nbsp;<br>
+                Agronomía&nbsp;
+                <i>ISSN:</i>&nbsp;0568-3076&nbsp;
+                <i>ed:</i>&nbsp;centro editorial_universidad de Caldas<br>
+                <i>v.</i>17
+                <i>fasc.</i>2
+                p.51
+                - 57
+                ,2009,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "Tipología de jóvenes rurales emprendedores agropecuarios: un estudio de caso en Colombia"
+                . En: Colombia&nbsp;<br>
+                Revista CEA&nbsp;
+                <i>ISSN:</i>&nbsp;2422-3182&nbsp;
+                <i>ed:</i>&nbsp;<br>
+                <i>v.</i>10
+                <i>fasc.</i>24
+                p.e3119
+                - e3119
+                ,2024,
+                <i>&nbsp;DOI:&nbsp;</i>10.22430/24223182.3119
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "The adoption of sustainable practices in livestock production systems in tropical Andean páramos"
+                . En: Reino Unido&nbsp;<br>
+                FRONTIERS IN SUSTAINABLE FOOD SYSTEMS&nbsp;
+                <i>ISSN:</i>&nbsp;2571-581X&nbsp;
+                <i>ed:</i>&nbsp;FRONTIERS MEDIA SA<br>
+                <i>v.</i>8
+                <i>fasc.</i>
+                p.1461713
+                - 
+                ,2025,
+                <i>&nbsp;DOI:&nbsp;</i>10.3389/fsufs.2024.1461713
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "THE DECENTRALIZATION OF THE AGRICULTURAL INNOVATION SYSTEM IN LATIN AMERICA"
+                . En: México&nbsp;<br>
+                TROPICAL AND SUBTROPICAL AGROECOSYSTEMS&nbsp;
+                <i>ISSN:</i>&nbsp;1870-0462&nbsp;
+                <i>ed:</i>&nbsp;Universidad Autonoma De Yucatan<br>
+                <i>v.</i>7
+                <i>fasc.</i>
+                p.1
+                - 10
+                ,2024,
+                <i>&nbsp;DOI:&nbsp;</i>10.56369/tsaes.5680
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "El enfoque de redes de colaboración para el análisis del Sistema Nacional de Innovación Agropecuaria en Colombia"
+                . En: Colombia&nbsp;<br>
+                Revista De Investigación, Desarrollo E Innovación&nbsp;
+                <i>ISSN:</i>&nbsp;2389-9417&nbsp;
+                <i>ed:</i>&nbsp;Universidad Pedagógica y Tecnológica de Colombia<br>
+                <i>v.</i>15
+                <i>fasc.</i>1
+                p.87
+                - 100
+                ,2025,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                
+                "Perfil socioemprendedor de jóvenes rurales y factores de permanencia territorial"
+                . En: Colombia&nbsp;<br>
+                EQUIDAD DESARROLLO&nbsp;
+                <i>ISSN:</i>&nbsp;2389-8844&nbsp;
+                <i>ed:</i>&nbsp;<br>
+                <i>v.</i>45
+                <i>fasc.</i>
+                p.1709
+                - 1709
+                ,2025,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                    
+                ANDRES GARCIA CUERVO,                    
+                
+                "Propuesta metodológica para la formulación participativa de programas de desarrollo agropecuario local."
+                . En: Colombia&nbsp;<br>
+                REVISTA LUNA AZUL&nbsp;
+                <i>ISSN:</i>&nbsp;1909-2474&nbsp;
+                <i>ed:</i>&nbsp;Universidad De Caldas<br>
+                <i>v.</i>40
+                <i>fasc.</i>N/A
+                p.224
+                - 239
+                ,2015,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                    
+                ANDRES GARCIA CUERVO,                    
+                
+                "Abordaje metodológico para formulación participativa de planes de asistencia técnica agropecuaria con enfoque territorial"
+                . En: Colombia&nbsp;<br>
+                Acta Agrono´mica&nbsp;
+                <i>ISSN:</i>&nbsp;0120-2812&nbsp;
+                <i>ed:</i>&nbsp;Universidad Nacionalde Colombia<br>
+                <i>v.</i>64
+                <i>fasc.</i>
+                p.321
+                - 329
+                ,2015,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                HOLMES RODRIGUEZ ESPINOSA,                    
+                                    
+                CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                    
+                ANDRES GARCIA CUERVO,                    
+                
+                "Factores que influencian la  adopción de tecnología de gestión en producción lechera"
+                . En: Colombia&nbsp;<br>
+                TEMAS AGRARIOS&nbsp;
+                <i>ISSN:</i>&nbsp;0122-7610&nbsp;
+                <i>ed:</i>&nbsp;<br>
+                <i>v.</i>20
+                <i>fasc.</i>1
+                p.36
+                - 46
+                ,2015,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+                <br><b>Palabras: </b><br>
+                                    
+                Adopción Tecnológica,                    
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+</table>
+</td>
+</tr>
+<!--Fin Articulos-->
+<!--Inicio libros-->
+<tr>        
+    <td width="100%"><a name="libros"></a>
+        <table width="100%" style="border:#999 1px solid">
+            <tr>
+                <td><h3 >Libros</h3></td>
+            </tr>
+                
+            <tr>
+                <td><li>
+                
+                <b>Producción bibliográfica - Libro - Libro resultado de investigación</b>
+            </li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            HOLMES RODRIGUEZ ESPINOSA,                    
+                                
+            CARLOS JULIAN RAMIREZ GOMEZ,                    
+            
+            "Metodología para la identificación de estilos de aprendizaje aplicables al sector agropecuario Colombiano (MIDEAS)"
+            En: Colombia
+            2017.&nbsp;
+            ed:Biogenesis Universidad De Antioquia&nbsp;
+            <i>ISBN:</i>&nbsp;978-958-5413-34-4&nbsp;
+            <i>v. </i>
+            <i>pags.</i>&nbsp;
+            
+            
+            <br><b>Palabras: </b><br>
+                                
+            Transferencia de tecnología,                    
+                                
+            Adopción Tecnológica,                    
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agronomía,                    
+            
+            
+            
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td><li>
+                
+                <b>Producción bibliográfica - Libro - Libro resultado de investigación</b>
+            </li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            CARLOS JULIAN RAMIREZ GOMEZ,                    
+                                
+            HOLMES RODRIGUEZ ESPINOSA,                    
+            
+            "Sistemas territoriales de innovación en la agricultura: un enfoque para agrocadenas"
+            En: Colombia
+            2022.&nbsp;
+            ed:Biogenesis Universidad De Antioquia&nbsp;
+            <i>ISBN:</i>&nbsp;978-628-7519-40-4&nbsp;
+            <i>v. </i>
+            <i>pags.</i>&nbsp;
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agronomía,                    
+                                    
+            Ingeniería y Tecnología -- Otras Ingenierías y Tecnologías -- Otras Ingenierías y Tecnologías,                    
+            
+            
+            
+        </blockquote>
+    </td>
+</tr>
+
+</table>
+</td>
+</tr>       
+<!--Fin libros-->
+<!--Inicio capitulos libro-->
+<tr>        
+    <td width="100%"><a name="capitulos"></a>        
+        <table width="100%" style="border:#999 1px solid">
+            <tr>
+                <td colspan="2"><h3 >Capitulos de libro</h3></td>
+            </tr>
+                
+            <tr>        
+                <td>                
+            <li>
+                <blockquote>
+                    
+                    
+                    Tipo: Otro capítulo de libro publicado<br>
+                    CARLOS JULIAN RAMIREZ GOMEZ,                    
+                    
+
+                    "Análisis económico de la coca (erythroxylum coca) al oriente del departamento de Caldas"
+                    Investigación En Administración Rural
+                    . En: Colombia&nbsp;
+                    <i>ISBN:</i>&nbsp;978-958-759-064-7&nbsp;
+                    <i>ed:</i>&nbsp;Centro Editorial De La Universidad De Caldas
+                    <i>, v.</i>
+                    , p.189
+                    - 224&nbsp;
+                    
+                    ,2013
+                    
+                    
+                    
+                                   
+                    <br><b>Areas: </b><br>
+                                            
+                    Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agronomía,                    
+                    
+                    
+                    
+                </blockquote>
+            </li>
+    </td>        
+</tr>
+    
+            <tr>        
+                <td>                
+            <li>
+                <blockquote>
+                    
+                    
+                    Tipo: Capítulo de libro<br>
+                    CARLOS JULIAN RAMIREZ GOMEZ,                    
+                    
+
+                    "Abordaje metodológico integrador para el análisis de sistemas territoriales de innovación"
+                    innovación en la investigación agropecuaria
+                    . En: Colombia&nbsp;
+                    <i>ISBN:</i>&nbsp;978-628-7519-65-7&nbsp;
+                    <i>ed:</i>&nbsp;
+                    <i>, v.</i>
+                    , p.12
+                    - 35&nbsp;
+                    
+                    ,2022
+                    
+                    
+                    
+                                   
+                    <br><b>Areas: </b><br>
+                                            
+                    Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agricultura,                    
+                    
+                    
+                    
+                </blockquote>
+            </li>
+    </td>        
+</tr>
+
+</table>
+</td>
+</tr> 
+<!--Fin capitulos libro-->
+<!--Inicio nota cientifica-->			   	
+<tr>        
+    <td width="100%"><a name="nota_cientifica"></a></td>
+</tr>
+<!--Fin Nota cientificas-->
+<!--Inicio publicaciones no cienti-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin publicaciones no cienti-->
+<!--Inicio documento trabajo-->
+<tr>        
+    <td width="100%"><a name="otra_prod_biblio"></a></td>
+</tr>	
+<!--Fin documentos trabajo-->
+
+ <!-- LIBROS TRADUCCIONES FILOLOGICAS  -->
+                <tr>
+                    <td width="100%"><a name="lib_tra"></a></td>
+                </tr>
+                
+<!--                FIN TRADUCCIONES FILOLOGICAS-->
+
+ 
+                    <!-- LIBROS DE CREACION -->
+                <tr>
+                    <td width="100%"><a name="lib_cre"></a></td>
+                </tr>
+                
+<!--                FIN LIBROS CREACION-->
+
+  <!-- LIBROS DE FORMACION -->
+                <tr>
+                    <td width="100%"><a name="lib_for"></a></td>
+                </tr>
+                
+<!--                FIN LIBROS FORMACION-->
+
+<!-- LIBROS DE DIVULGACION -->
+                <tr>
+                    <td width="100%"><a name="lib_div"></a>
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3 >Libros de divulgaci&oacute;n y/o Compilaci&oacute;n de divulgaci&oacute;n</h3></td>
+                            </tr>
+                                
+                            <tr>
+                                <td><li><b>Producción bibliográfica - Libro - Libros de divulgación y/o Compilación de divulgación </b></li></td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                            <i>Nombre del libro: </i>Sistema de abastecimiento agroalimentario de las subregiones del Bajo y Medio Putumayo,&nbsp;   
+                            <i>Fecha de presentaci&oacute;n: </i>2019 -   
+                            Junio,&nbsp;
+                            <i>Isbn: </i>NA,&nbsp;   
+                            <i>Medio de divulgaci&oacute;n: </i>Papel,&nbsp;   
+                            <i>Lugar de publicaci&oacute;n: </i>Colombia,&nbsp;   
+                            <i>Editorial: </i>FAO (Organización de las Naciones Unidad Para la Agricultura y la Alimentación),&nbsp;  
+                            
+                                                           
+                                            <br><b>Areas: </b><br>
+                                                                    
+                                            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agricultura,                    
+                                            
+                        </blockquote>
+                    </td>
+                </tr>
+                    
+                            <tr>
+                                <td><li><b>Producción bibliográfica - Libro - Libros de divulgación y/o Compilación de divulgación </b></li></td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                            <i>Nombre del libro: </i>SISTEMA DE ABASTECIMIENTO AGROALIMENTARIO DEL DEPARTAMENTO DE NARIÑO,&nbsp;   
+                            <i>Fecha de presentaci&oacute;n: </i>2020 -   
+                            Enero,&nbsp;
+                            <i>Isbn: </i>978-958-52690-3-3,&nbsp;   
+                            <i>Medio de divulgaci&oacute;n: </i>Electrónico,&nbsp;   
+                            <i>Lugar de publicaci&oacute;n: </i>Colombia,&nbsp;   
+                            <i>Editorial: </i>Organización de las Naciones Unidas para la Alimentación y la Agricultura ,&nbsp;  
+                            
+                                                           
+                                            <br><b>Areas: </b><br>
+                                                                    
+                                            Ciencias Agrícolas -- Agricultura, Silvicultura y Pesca -- Agricultura,                    
+                                            
+                        </blockquote>
+                    </td>
+                </tr>
+                
+                </table>
+                </td>
+                </tr>
+                
+<!--                FIN LIBROS DIVULGACION-->
+
+<!--INICIO MANUALES -->
+                <tr>
+                    <td width="100%"><a name="lib_man"></a></td>
+                </tr>
+                
+<!--                FIN MANUALES-->
+<!--INICIO BOLETINES-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--FIN BOLETINES-->
+<!--Inicio traducciones-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin traducciones-->
+
+<!--Inicio otra prod biblio-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin otra prod biblio-->
+
+<!--Inicio patentes -->
+<tr>        
+    <td width="100%"><a name="patentes"></a></td>
+</tr>
+<!--Fin patentes -->
+
+
+<!--Inicio secretos -->
+<tr>        
+    <td width="100%"><a name="secretos"></a></td>
+</tr>
+<!--Fin secretos -->
+
+<!--Inicio software-->
+<tr>        
+    <td width="100%"><a name="software"></a></td>
+</tr>
+<!--Fin software-->
+<!--Inicio nutraceutico-->			   	
+<tr>        
+    <td width="100%"><a name="nutraceuticos"></a></td>
+</tr>
+<!--Fin nutraceutico-->
+<!--Inicio de protocolos de vigilancia epidemiológica-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin de protocolos de vigilancia epidemiológica-->
+<!--Inicio de prototipos-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin de prototipos-->
+<tr>        
+    <td width="100%"><a name="tecnologicos"></a></td>
+</tr>
+<tr>        
+    <td width="100%"></td>
+</tr>
+<tr>        
+    <td width="100%"></td>
+</tr>
+<tr>        
+    <td width="100%"><a name="disnio"></a></td>
+</tr>
+<tr>        
+    <td width="100%"><a name="disnio"></a></td>
+</tr>
+<tr>        
+    <td width="100%"><a name="disnio"></a></td>
+</tr>
+<!--Inicio Poblaciones mejoradas de razas pecuarias--> 
+<tr>        
+    <td width="100%"><a name="disnio"></a></td>
+</tr>
+<!--Fin Poblaciones mejoradas de razas pecuarias-->
+<tr>        
+    <td width="100%"><a name="disnio"></a></td>
+</tr>
+<!--Inicio Nuevo registro cientifico-->
+<tr>        
+    <td width="100%"><a name="registro_cientifico"></a></td>
+</tr>
+<!--Fin Nuevo registro cientifico-->
+<tr>        
+    <td width="100%"><a name="procesos"></a></td>
+</tr>
+<tr>        
+    <td width="100%"></td>
+</tr>
+<tr>        
+    <td width="100%"></td>
+</tr>
+<tr>        
+    <td width="100%"><a name="disnio"></td>
+</tr>
+<tr>
+    <td></td>
+</tr>
+<tr>        
+    <td width="100%"><a name="disnio"></a></td>
+</tr>
+
+<tr>        
+    <td width="100%"></td>
+</tr>
+
+<!--Inicio de concepto tecnico-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin de concepto tecnico-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Inicio secuencias genticas-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin secuencias genticas-->
+<tr>        
+    <td width="100%"></td>
+</tr>  
+<tr>        
+    <td width="100%"><a name="otra_prod_tecnica"></a></td>
+</tr>          
+<tr>        
+    <td width="100%"></td>
+</tr>
+<tr>        
+    <td width="100%"><a name="demas_trabajos"></a></td>
+</tr>
+
+<tr>
+    <td width="100%">
+        
+
+</td>
+</tr>
+
+<tr>
+    <td width="100%">
+        
+
+</td>
+</tr>        
+
+<tr>
+    <td width="100%"></td>
+</tr>
+
+<tr>
+
+    <td width="100%"></td>
+</tr>
+
+<tr>
+    <td width="100%">        
+        
+</td>
+</tr>
+
+<tr>
+    <td></td>
+</tr>
+
+</body>
+</html>

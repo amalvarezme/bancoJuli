@@ -1,0 +1,41 @@
+[
+ {
+  "id_convocatoria": "19",
+  "nme_convocatoria": "Convocatoria 781 de 2017",
+  "ano_convo": "2017-05-12T00:00:00.000",
+  "id_persona_pr": "0001396742",
+  "nme_esp_area_pr": "Agronomía",
+  "nme_area_pr": "Agricultura, Silvicultura y Pesca",
+  "nme_gran_area_pr": "Ciencias Agrícolas",
+  "nme_niv_form_pr": "Maestría/Magister",
+  "id_clas_pr": "IJ",
+  "nme_clasificacion_pr": "Investigador Junior",
+  "inst_filia": "UNIVERSIDAD DE ANTIOQUIA"
+ },
+ {
+  "id_convocatoria": "20",
+  "nme_convocatoria": "Convocatoria 833 de 2018",
+  "ano_convo": "2019-12-06T00:00:00.000",
+  "id_persona_pr": "0001396742",
+  "nme_esp_area_pr": "Agronomía",
+  "nme_area_pr": "Agricultura, Silvicultura y Pesca",
+  "nme_gran_area_pr": "Ciencias Agrícolas",
+  "nme_niv_form_pr": "Doctorado",
+  "id_clas_pr": "IJ",
+  "nme_clasificacion_pr": "Investigador Junior",
+  "inst_filia": "ORGANIZACION DE LAS NACIONES UNIDAS FAO"
+ },
+ {
+  "id_convocatoria": "21",
+  "nme_convocatoria": "Convocatoria 894 de 2021",
+  "ano_convo": "2021-02-25T00:00:00.000",
+  "id_persona_pr": "0001396742",
+  "nme_esp_area_pr": "Agronomía",
+  "nme_area_pr": "Agricultura, Silvicultura y Pesca",
+  "nme_gran_area_pr": "Ciencias Agrícolas",
+  "nme_niv_form_pr": "Doctorado",
+  "id_clas_pr": "IJ",
+  "nme_clasificacion_pr": "Investigador Junior",
+  "inst_filia": null
+ }
+]

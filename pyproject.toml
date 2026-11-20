@@ -1,0 +1,25 @@
+[project]
+name = "banco-juli"
+version = "0.1.0"
+description = "Banco Juli MCP server: publications and research projects of Prof. Carlos Julián Ramírez Gómez (Universidad de Caldas) as input for papers and proposals"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["mcp>=2.3,<3"]
+
+[project.scripts]
+banco-juli-mcp = "banco_juli.banco_juli_mcp:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# The wheel holds only the MCP server and the data it serves; the dashboard and build tools stay in the repo.
+[tool.hatch.build.targets.wheel]
+bypass-selection = true
+
+[tool.hatch.build.targets.wheel.force-include]
+"tools/bank_db.py" = "banco_juli/bank_db.py"
+"tools/banco_juli_mcp.py" = "banco_juli/banco_juli_mcp.py"
+"data/bank.json" = "banco_juli/data/bank.json"
+"articulos" = "banco_juli/articulos"
+"proyectos" = "banco_juli/proyectos"

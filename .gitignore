@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+.venv/
+.atl/
+data/bank.db
+data/bank.db.tmp
+.venv/
+uv.lock
+data/raw/brand/*.pdf

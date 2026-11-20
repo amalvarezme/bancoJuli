@@ -1,0 +1,618 @@
+<title>Banco Juli</title>
+<link rel="icon" href="favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png?v=2">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: Universidad de Caldas institutional look (manual de identidad 2024) — navy sticky band with tabs,
+   light hero with the researcher card, a detail drawer on the right.
+   The data panels (.stage, the 3D frame) stay on a night-sky palette; their tokens are re-scoped below. */
+:root {
+  --sky: #f5f7fa; --panel: #ffffff; --panel-2: #eaf0f6; --line: #d3dce6;
+  --ink: #1a2530; --muted: #4a5868; --faint: #7b8794;
+  --gold: #b5a27c; --green: #045389; --accent: #003e70;
+  --brand: #003e70; --brand-2: #045389; --lime: #d5bb87; --band: #003e70; --band-2: #00284d;
+  --display: "Roboto Condensed", Roboto, "Helvetica Neue", system-ui, sans-serif;
+  --body: Roboto, "Helvetica Neue", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+.stage, #tip {
+  --sky: #090b14; --panel: #10142a; --panel-2: #161b36; --line: #262d52;
+  --ink: #e6e8f4; --muted: #9aa1c2; --faint: #6b7397;
+  --gold: #d5bb87; --green: #5b9bd5; --accent: #d5bb87;
+  color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { background: var(--sky); color: var(--ink); font: 15px/1.55 var(--body); margin: 0; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--band); }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 1440px; margin: 0 auto; }
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--band); color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+.bar-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; padding-block: 8px 2px; }
+.uc-logo { display: block; flex: 0 0 auto; }
+.uc-logo img { height: 46px; width: auto; display: block; }
+.site { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.site a { color: #fff; text-decoration: none; font: 400 19px/1.2 var(--display); }
+.site a::before { content: ""; display: inline-block; width: 9px; height: 13px; margin-right: 8px; vertical-align: -1px; background: #b9b9b9; clip-path: path("M4.5 0C2 0 0 2 0 4.5 0 8 4.5 13 4.5 13S9 8 9 4.5C9 2 7 0 4.5 0Z"); }
+.site a:hover { color: var(--lime); }
+.site span { font-size: 12px; color: #d2d2d2; letter-spacing: .02em; }
+.stats { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-left: auto; font-family: var(--mono); font-size: 12px; color: #d2d2d2; }
+.stats b { color: #fff; font-weight: 500; font-variant-numeric: tabular-nums; }
+nav { display: flex; gap: 2px; overflow-x: auto; padding-block: 2px 0; scrollbar-width: none; }
+nav::-webkit-scrollbar { display: none; }
+nav button { font: 600 13px var(--body); text-transform: uppercase; letter-spacing: .03em; color: #fff; background: none; border: 0; border-bottom: 3px solid transparent; padding: 8px 12px 7px; cursor: pointer; white-space: nowrap; }
+nav button[aria-selected="true"] { border-bottom-color: var(--lime); color: #fff; }
+nav button:hover:not([aria-selected="true"]) { color: var(--lime); }
+button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+.hero { background: linear-gradient(160deg, #dfe8f2 0%, #edf2f7 45%, var(--sky) 100%); border-bottom: 1px solid var(--line); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 23rem) minmax(0, 1fr); gap: 12px 32px; align-items: center; padding-block: 14px; }
+.brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.brand img { height: 68px; width: auto; flex: 0 0 auto; display: block; }
+h1 { font: 800 30px/1.05 var(--display); color: var(--brand); letter-spacing: -.005em; margin: 0; }
+h1 small { display: block; font: 400 13.5px/1.35 var(--body); color: var(--brand); letter-spacing: 0; margin-top: 6px; }
+h1 small a { color: var(--brand-2); }
+/* Lab leads: one compact row each, so the first panel stays in the first screen. */
+.leads summary { font: 700 12px var(--body); text-transform: uppercase; letter-spacing: .1em; color: var(--brand-2); margin: 0 0 6px; cursor: pointer; width: max-content; }
+.leads ul { list-style: none; margin: 0; padding: 0; background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--lime); border-radius: 6px; }
+.leads li { display: grid; grid-template-columns: 14.5em minmax(0, 1fr) auto; gap: 2px 14px; align-items: baseline; padding: 5px 12px; min-width: 0; }
+.leads li + li { border-top: 1px solid var(--line); }
+.leads strong { font: 700 14px/1.3 var(--display); color: var(--brand); }
+.leads .role { font-size: 13px; color: var(--muted); line-height: 1.35; }
+.leads .links { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; }
+.leads .links a { color: var(--brand-2); font-weight: 600; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--brand-2) 35%, transparent); white-space: nowrap; }
+.leads .links a:hover { color: var(--brand); border-bottom-color: var(--brand); }
+@media (max-width: 1100px) { .hero .wrap { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .leads li { grid-template-columns: 1fr; padding-block: 8px; } }
+main { padding-block: 20px 48px; }
+.view[hidden] { display: none !important; }
+.lede { color: var(--muted); max-width: 72ch; margin: 0 0 14px; }
+.lede b { color: var(--brand); font-weight: 700; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-bottom: 10px; font-size: 13px; color: var(--muted); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--panel); }
+.seg button { background: none; color: var(--muted); border: 0; padding: 5px 12px; font: 600 12px var(--body); cursor: pointer; }
+.seg button.on { background: var(--brand); color: #fff; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.legend i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px; }
+.legend .art { border-radius: 50%; background: var(--gold); }
+.legend .proj { background: var(--green); transform: rotate(45deg); }
+.stage { position: relative; background: radial-gradient(ellipse at 50% 40%, #121735 0%, var(--sky) 70%); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+#orrery { display: block; width: 100%; height: min(78vh, 820px); min-height: 460px; cursor: grab; }
+#orrery:active { cursor: grabbing; }
+.planet-label { font: 600 11px var(--display); fill: var(--ink); pointer-events: none; paint-order: stroke; stroke: var(--sky); stroke-width: 4px; }
+.planet-count { font: 400 10px var(--mono); fill: var(--muted); pointer-events: none; paint-order: stroke; stroke: var(--sky); stroke-width: 3px; }
+.node { cursor: pointer; }
+.dim { opacity: .12; }
+#tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 12px; max-width: 320px; display: none; z-index: 3; }
+#tip b { font-family: var(--mono); font-weight: 500; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; }
+.chip { font: 600 12px var(--body); border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 999px; padding: 3px 10px 3px 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip .sw { width: 9px; height: 9px; border-radius: 50%; }
+.chip.on { border-color: var(--brand); background: var(--panel-2); }
+.chip .n { font-family: var(--mono); color: var(--muted); font-size: 11px; }
+.frame3d { width: 100%; height: auto; aspect-ratio: 16 / 10; max-height: calc(100vh - 190px); min-height: 520px; border: 1px solid var(--line); border-radius: 8px; background: #0a0a10; display: block; }
+@media (max-width: 820px) { .frame3d { aspect-ratio: auto; height: calc(100vh - 150px); max-height: none; } }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--brand); border-radius: 6px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; box-shadow: 0 1px 3px rgba(0,40,77,.06); }
+.card h3 { font: 700 17px/1.25 var(--display); color: var(--brand); margin: 0; display: flex; gap: 10px; align-items: baseline; text-wrap: balance; }
+.card h3 .cid { font: 500 11px var(--mono); color: var(--muted); }
+.meta { font: 12px var(--mono); color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.terms { display: flex; flex-wrap: wrap; gap: 4px; }
+.terms span { font-size: 12px; background: var(--panel-2); border-radius: 4px; padding: 1px 7px; color: var(--muted); }
+.bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--panel-2); }
+.card h4 { font: 700 11px var(--body); text-transform: uppercase; letter-spacing: .08em; color: var(--brand-2); margin: 4px 0 0; }
+.card ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.card li { color: var(--ink); }
+.card li a, .link { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--faint); cursor: pointer; }
+.card li a:hover, .link:hover { color: var(--brand); border-bottom-color: var(--brand); }
+.card li .src { font: 11px var(--mono); color: var(--faint); }
+.btn { align-self: flex-start; font: 600 12px var(--body); color: #fff; background: var(--brand); border: 1px solid var(--brand); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+.btn:hover { background: var(--brand-2); border-color: var(--brand-2); }
+.filters { display: grid; grid-template-columns: minmax(0, 2fr) repeat(5, minmax(0, 1fr)); gap: 8px; margin-bottom: 12px; }
+@media (max-width: 760px) { .filters { grid-template-columns: 1fr 1fr; } .filters input { grid-column: 1 / -1; } }
+input, select { width: 100%; font: 14px var(--body); color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; }
+#count { font: 12px var(--mono); color: var(--muted); margin-bottom: 8px; }
+.list { display: flex; flex-direction: column; border-top: 2px solid var(--brand); background: var(--panel); }
+.row { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 12px; padding: 10px 8px; border-bottom: 1px solid var(--line); cursor: pointer; align-items: baseline; }
+.row:hover { background: var(--panel-2); }
+.row .id { font: 12px var(--mono); color: var(--muted); }
+.row .t { min-width: 0; }
+.row .t small { display: block; color: var(--muted); font-size: 12px; }
+.row .y { font: 12px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.kind { display: inline-block; width: 8px; height: 8px; margin-right: 6px; vertical-align: 1px; }
+.kind.articulo { border-radius: 50%; background: var(--gold); }
+.kind.proyecto { background: var(--green); transform: rotate(45deg); }
+#timeline { width: 100%; height: auto; display: block; }
+.axis text { font: 10px var(--mono); fill: var(--muted); }
+.axis line, .axis path { stroke: var(--line); }
+aside { position: fixed; top: 0; right: 0; bottom: 0; width: min(560px, 100%); background: var(--panel); border-left: 4px solid var(--brand); box-shadow: -6px 0 24px rgba(0,0,0,.18); z-index: 20; overflow-y: auto; padding: calc(18px + env(safe-area-inset-top, 0px)) calc(20px + env(safe-area-inset-right, 0px)) calc(40px + env(safe-area-inset-bottom, 0px)) 20px; }
+aside h2 { font: 700 20px/1.3 var(--display); color: var(--brand); margin: 6px 0 10px; text-wrap: balance; }
+aside .close { position: sticky; top: 0; float: right; }
+aside section { margin-top: 14px; }
+aside h5 { font: 700 11px var(--body); text-transform: uppercase; letter-spacing: .08em; color: var(--brand-2); margin: 0 0 4px; }
+aside p { margin: 0; max-width: 65ch; }
+aside .pill { display: inline-block; font: 11px var(--mono); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; margin: 0 4px 4px 0; color: var(--muted); }
+aside .warn { color: #8a5a00; font-size: 12px; }
+aside a { color: var(--brand); }
+.pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 14px; }
+.pgrid .card p { margin: 0; }
+.pgrid .wide { grid-column: 1 / -1; }
+.tl { list-style: none; padding: 0 !important; }
+.tl li { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 10px; }
+.tl .when { font: 12px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.tl small { display: block; color: var(--muted); font-size: 12.5px; }
+.note { font-size: 12.5px; color: var(--faint); }
+.ids { display: flex; flex-wrap: wrap; gap: 6px 10px; }
+.ids a { font: 600 13px var(--body); color: var(--brand); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; background: var(--panel-2); }
+.ids a:hover { border-color: var(--brand); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+footer.lab { background: var(--band-2); color: #fff; }
+footer.lab .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 24px; padding-block: 20px 28px; }
+footer.lab .badge { display: inline-flex; }
+footer.lab img { height: 56px; width: auto; display: block; }
+footer.lab strong { display: block; font: 700 14px var(--body); }
+footer.lab span { font-size: 13px; color: #d2d2d2; }
+footer.lab a { color: var(--lime); }
+@media (max-width: 560px) { footer.lab .wrap { flex-direction: column; text-align: center; } }
+/* Phones and short landscape screens: the header scrolls away instead of covering a fifth of the view. */
+@media (max-width: 640px), (max-height: 500px) {
+  header { position: static; }
+  .bar-top { padding-block: 8px 0; gap: 6px 14px; }
+  .uc-logo img { height: 38px; }
+  .site a { font-size: 16px; }
+  .site span { display: none; }
+  .stats { margin-left: 0; gap: 2px 12px; font-size: 11px; }
+  .hero .wrap { padding-block: 10px; gap: 8px; }
+  .brand img { height: 48px; }
+  h1 { font-size: 24px; }
+  h1 small { font-size: 12px; margin-top: 3px; }
+  .leads summary { margin: 0; padding-block: 4px; }
+  .leads[open] summary { margin-bottom: 6px; }
+  main { padding-block: 12px 32px; }
+  .frame3d { height: calc(100svh - 24px); min-height: 380px; }
+  .card { padding: 14px; }
+}
+/* Touch screens: larger targets and 16px fields, so iOS does not zoom in on focus. */
+@media (pointer: coarse) {
+  nav button { padding: 11px 12px 9px; }
+  .seg button { padding: 9px 14px; }
+  .chip { padding: 6px 12px 6px 10px; }
+  .btn { padding: 9px 14px; }
+  input, select { font-size: 16px; padding: 10px; }
+  .row { padding-block: 12px; }
+}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="bar-top">
+      <a class="uc-logo" href="https://www.ucaldas.edu.co/" target="_blank" rel="noopener" title="Universidad de Caldas"><img src="ucaldas_logo_horizontal_blanco.png" alt="Universidad de Caldas"></a>
+      <div class="site">
+        <a href="https://www.ucaldas.edu.co/portal/facultad-de-ciencias-agropecuarias/" target="_blank" rel="noopener">Facultad de Ciencias Agropecuarias</a>
+        <span>Departamento de Desarrollo Rural y Recursos Naturales · Manizales</span>
+      </div>
+      <div class="stats" id="stats"></div>
+    </div>
+    <nav role="tablist" aria-label="Vistas">
+      <button role="tab" data-view="constelacion" aria-selected="true">Constelación 3D</button>
+      <button role="tab" data-view="ideas" aria-selected="false">Clústeres e ideas</button>
+      <button role="tab" data-view="sistema" aria-selected="false">Sistema temático</button>
+      <button role="tab" data-view="explorar" aria-selected="false">Explorar</button>
+      <button role="tab" data-view="tiempo" aria-selected="false">Línea de tiempo</button>
+      <button role="tab" data-view="perfil" aria-selected="false">Perfil</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <a href="https://www.ucaldas.edu.co/" target="_blank" rel="noopener" title="Universidad de Caldas"><img src="ucaldas_supersigno.png" alt="Supersigno Universidad de Caldas"></a>
+      <h1>Banco Juli<small>Publicaciones, proyectos e ideas de investigación en innovación y desarrollo rural · Universidad de Caldas</small></h1>
+    </div>
+    <details class="leads" id="leads" open>
+      <summary>Investigador</summary>
+      <ul>
+        <li>
+          <strong>Prof. Carlos Julián Ramírez Gómez</strong>
+          <span class="role">Profesor, Depto. Desarrollo Rural y Recursos Naturales · Ph.D. Ingeniería – Industria y Organizaciones</span>
+          <span class="links">
+            <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001396742" target="_blank" rel="noopener" title="CvLAC - Minciencias">CvLAC</a>
+            <a href="https://scholar.google.com/citations?user=BcgHqLYAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="https://orcid.org/0000-0003-0099-0932" target="_blank" rel="noopener">ORCID</a>
+            <a href="#perfil" data-goto="perfil">Perfil</a>
+          </span>
+        </li>
+      </ul>
+    </details>
+    <script>if (matchMedia('(max-width: 640px), (max-height: 500px)').matches) document.getElementById('leads').open = false;</script>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="view" id="v-constelacion">
+    <p class="lede">Visor 3D de <b>papersmith-ai</b>: cada sistema es una publicación (sol dorado) o un proyecto (sol azul) con sus planetas temáticos. <a class="link" href="constelacion.html" target="_blank" rel="noopener">Abrir en pantalla completa</a></p>
+    <iframe class="frame3d" id="frame3d" title="Constelación 3D" src="constelacion.html" loading="lazy"></iframe>
+  </section>
+
+  <section class="view" id="v-ideas" hidden>
+    <p class="lede">Los clústeres salen de TF‑IDF + SVD + k‑means sobre aplicación, problema, propuesta, palabras clave y métodos. Cada tarjeta reúne las <b>novedades recientes</b> y las <b>ideas de trabajo futuro</b> de sus miembros. «Copiar base de redacción» copia un resumen en Markdown listo para una introducción o un estado del arte.</p>
+    <div class="grid" id="cards"></div>
+  </section>
+
+  <section class="view" id="v-sistema" hidden>
+    <p class="lede">Cada <b>planeta</b> es un tema de la taxonomía (T01–T10), con tamaño proporcional a su producción. A su alrededor orbitan las <b>publicaciones</b> (círculos) y <b>proyectos</b> (rombos), coloreados por el clúster semántico que les asignó el agrupamiento. Cambie a «Agrupar por clúster» para ver cada grupo como un sistema propio. Arrastre para mover, use la rueda (dos dedos en pantallas táctiles) para acercar y haga clic en un punto para leer su ficha.</p>
+    <div class="toolbar">
+      <span>Agrupar por</span>
+      <div class="seg" id="groupby"><button class="on" data-g="tema">Tema</button><button data-g="cluster">Clúster</button></div>
+      <span>Mostrar</span>
+      <div class="seg" id="kindsel"><button class="on" data-k="all">Todo</button><button data-k="articulo">Publicaciones</button><button data-k="proyecto">Proyectos</button></div>
+      <div class="legend"><span><i class="art"></i>Publicación</span><span><i class="proj"></i>Proyecto</span><span>Línea tenue: proyecto → publicación relacionada</span></div>
+    </div>
+    <div class="stage"><svg id="orrery" role="img" aria-label="Sistema de temas con artículos y proyectos"></svg><div id="tip"></div></div>
+    <div class="chips" id="clusterchips" aria-label="Filtrar por clúster"></div>
+  </section>
+
+  <section class="view" id="v-explorar" hidden>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Buscar en títulos, problemas, propuestas, palabras clave…" aria-label="Buscar">
+      <select id="fkind" aria-label="Tipo"><option value="">Todo tipo</option><option value="articulo">Publicaciones</option><option value="proyecto">Proyectos</option></select>
+      <select id="ftopic" aria-label="Tema"><option value="">Todos los temas</option></select>
+      <select id="fcluster" aria-label="Clúster"><option value="">Todos los clústeres</option></select>
+      <select id="fyear" aria-label="Desde el año"><option value="">Cualquier año</option></select>
+      <select id="fstate" aria-label="Tipo de producto"><option value="">Cualquier producto</option><option>Artículo</option><option>Libro</option><option>Capítulo de libro</option><option>Tesis</option><option>Proyecto</option></select>
+    </div>
+    <div id="count"></div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <section class="view" id="v-tiempo" hidden>
+    <p class="lede">Producción por año de inicio (proyectos) y de publicación (artículos, libros, capítulos y tesis), apilada por clúster principal del tema.</p>
+    <div class="stage" style="padding:12px 8px 4px"><svg id="timeline" role="img" aria-label="Producción por año"></svg></div>
+    <div class="chips" id="tlegend"></div>
+  </section>
+  <section class="view" id="v-perfil" hidden>
+    <p class="lede">Trayectoria del <b>Prof. Carlos Julián Ramírez Gómez</b> compilada de CvLAC, ORCID, OpenAlex y el portal de la Universidad de Caldas. Los datos sin confirmar se marcan como tales.</p>
+    <div class="pgrid" id="profile"></div>
+  </section>
+</main>
+
+<footer class="lab">
+  <div class="wrap">
+    <a class="badge" href="https://www.ucaldas.edu.co/" target="_blank" rel="noopener" title="Universidad de Caldas">
+      <img src="ucaldas_logo_vertical_blanco.png" alt="Universidad de Caldas">
+    </a>
+    <div>
+      <strong>Banco Juli · Prof. Carlos Julián Ramírez Gómez</strong>
+      <span>Universidad de Caldas · Facultad de Ciencias Agropecuarias · Manizales · <a href="https://www.ucaldas.edu.co/" target="_blank" rel="noopener">ucaldas.edu.co</a> · <a href="https://github.com/amalvarezme/bancoJuli" target="_blank" rel="noopener">Código y servidor MCP</a></span>
+    </div>
+  </div>
+</footer>
+
+<aside id="drawer" hidden aria-label="Ficha"><button class="btn close" id="dclose">Cerrar</button><div id="dbody"></div></aside>
+
+<script type="application/json" id="bank">@@BANK@@</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+const BANK = JSON.parse(document.getElementById('bank').textContent);
+const ITEMS = BANK.items, BY = new Map(ITEMS.map(i => [i.id, i]));
+const TOPICS = BANK.topics, TIDS = Object.keys(TOPICS).sort();
+const CL = BANK.clusters, CBY = new Map(CL.map(c => [c.id, c]));
+const CCOL = new Map(CL.map((c, k) => [c.id, d3.hsl((k * 360 / CL.length + 200) % 360, 0.62, 0.64).formatHex()]));
+const yearOf = i => +(i.year || i.start || 0);
+const primary = i => (i.temas && i.temas[0]) || TIDS[0];
+const el = (tag, attrs = {}, ...kids) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === 'class') e.className = v; else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v); } kids.flat().forEach(k => e.append(k?.nodeType ? k : document.createTextNode(k ?? ''))); return e; };
+
+// Header stats
+(() => {
+  const a = ITEMS.filter(i => i.kind === 'articulo'), p = ITEMS.filter(i => i.kind === 'proyecto');
+  const ys = ITEMS.map(yearOf).filter(Boolean);
+  const s = document.getElementById('stats');
+  [['publicaciones', a.length], ['proyectos', p.length], ['temas', TIDS.length], ['clústeres', CL.length], ['periodo', `${Math.min(...ys)}–${Math.max(...ys)}`]]
+    .forEach(([k, v]) => s.append(el('span', {}, el('b', {}, String(v)), ' ' + k)));
+})();
+
+// The constellation iframe renders continuously; tell it when its tab is hidden so it pauses.
+const frame3d = document.getElementById('frame3d');
+function notifyConstellation(visible) {
+  if (frame3d.contentWindow && frame3d.src) {
+    frame3d.contentWindow.postMessage({type: 'banco-juli-visibility', visible}, location.origin);
+  }
+}
+frame3d.addEventListener('load', () => notifyConstellation(!document.getElementById('v-constelacion').hidden));
+
+// Tabs with bookmarkable hash tokens
+const views = [...document.querySelectorAll('nav button')];
+function show(name) {
+  if (!views.some(b => b.dataset.view === name)) name = 'constelacion';
+  views.forEach(b => b.setAttribute('aria-selected', String(b.dataset.view === name)));
+  document.querySelectorAll('.view').forEach(v => v.hidden = v.id !== 'v-' + name);
+  if (name === 'constelacion') { const f = document.getElementById('frame3d'); if (f && !f.src) f.src = 'constelacion.html'; }
+  notifyConstellation(name === 'constelacion');
+  if (name !== 'sistema' && sim) sim.stop();
+  if (name === 'sistema' && orreryStale) drawOrrery();
+  if (name === 'tiempo') drawTimeline();
+  try { history.replaceState(null, '', '#' + name); } catch (e) {}
+}
+views.forEach(b => b.addEventListener('click', () => show(b.dataset.view)));
+
+// Drawer (record detail)
+const drawer = document.getElementById('drawer'), dbody = document.getElementById('dbody');
+document.getElementById('dclose').addEventListener('click', () => drawer.hidden = true);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') drawer.hidden = true; });
+const REL = { yields: 'Produjo', extends: 'Extiende', derivado_de: 'Derivado del proyecto', extendido_por: 'Extendido por' };
+function field(label, value) {
+  if (!value || (Array.isArray(value) && !value.length)) return null;
+  return el('section', {}, el('h5', {}, label), Array.isArray(value) ? el('p', {}, value.join(' · ')) : el('p', {}, value));
+}
+function openItem(id) {
+  const i = BY.get(id); if (!i) return;
+  const c = CBY.get(i.cluster);
+  const kids = [
+    el('span', { class: 'pill' }, i.id), el('span', { class: 'pill' }, i.tipo || (i.kind === 'articulo' ? 'Publicación' : 'Proyecto')),
+    el('span', { class: 'pill' }, i.kind === 'articulo' ? String(i.year || '?') : `${i.start || '?'}–${i.end || '?'}`),
+    el('span', { class: 'pill', style: `border-color:${CCOL.get(i.cluster)}` }, `${i.cluster} ${c.name}`),
+    el('h2', {}, i.title),
+    el('p', { class: 'meta' }, (i.temas || []).map(t => `${t} ${TOPICS[t]?.name || ''}`).join(' · ')),
+  ];
+  if (i.kind === 'articulo') { kids.push(el('p', { class: 'meta' }, i.journal_oa || i.journal || '', i.doi ? ' · ' : '', i.doi ? el('a', { href: 'https://doi.org/' + i.doi, target: '_blank', rel: 'noopener' }, 'doi:' + i.doi) : (i.url ? el('a', { href: i.url, target: '_blank', rel: 'noopener' }, 'fuente') : ''))); kids.push(field('Autores', i.authors)); }
+  else {
+    kids.push(el('p', { class: 'meta' }, [i.role, i.institution].filter(Boolean).join(' · '), i.url ? ' · ' : '', i.url ? el('a', { href: i.url, target: '_blank', rel: 'noopener' }, 'fuente') : ''));
+    kids.push(field('Financiador', i.financiador));
+    if (i.confidence && i.confidence !== 'high') kids.push(el('p', { class: 'warn' }, `Atribución con confianza ${i.confidence === 'low' ? 'baja' : 'media'}. ${i.nota_atribucion || ''}`));
+  }
+  if (i.fuente === 'titulo') kids.push(el('p', { class: 'warn' }, 'Ficha inferida del título: la fuente no trae resumen.'));
+  if (i.abstract) kids.push(el('details', {}, el('summary', { class: 'meta' }, 'Resumen original'), el('p', {}, i.abstract)));
+  kids.push(field('Aplicación', i.aplicacion), field('Problema de investigación', i.problema), field('Propuesta o novedad', i.propuesta),
+    field('Resultados', i.resultados), field('Conclusiones', i.conclusiones));
+  if (i.kind === 'proyecto') kids.push(field('Productos tecnológicos', i.productos_tecnologicos), field('Apropiación social', i.apropiacion_social), field('Aliados', i.aliados));
+  else kids.push(field('Métodos', i.metodos));
+  kids.push(field('Palabras clave', i.palabras_clave), field('Idea para trabajo futuro', i.idea_futura));
+  if (i.relacionados?.length) kids.push(el('section', {}, el('h5', {}, 'Relacionados'), el('ul', {}, i.relacionados.map(([r, o]) => el('li', {}, `${REL[r]}: `, el('a', { class: 'link', onclick: () => openItem(o) }, `${o} · ${BY.get(o).title}`))))));
+  kids.push(el('section', {}, el('h5', {}, 'Archivo'), el('p', { class: 'meta' }, `${i.kind === 'articulo' ? 'articulos' : 'proyectos'}/${i.slug}.md`)));
+  dbody.replaceChildren(...kids.filter(Boolean));
+  drawer.hidden = false; drawer.scrollTop = 0;
+}
+
+// Orrery: topic planets with items in orbit (d3 force)
+const svg = d3.select('#orrery'), tip = document.getElementById('tip');
+let groupBy = 'tema', kindFilter = 'all', clusterFilter = null, sim, nodeSel, linkSel;
+const groupKeys = () => groupBy === 'tema' ? TIDS : CL.map(c => c.id);
+// Narrow or short screens cannot fit a ring of planets with readable labels: lay them out in a grid instead.
+const CELL_H = 200;
+const useGrid = W => W < 1100 || innerHeight < 860;
+const gridCols = W => Math.max(2, Math.min(6, Math.floor(W / 210)));
+function centers(W, H) {
+  const keys = groupKeys(), m = new Map();
+  if (useGrid(W)) {
+    const cols = gridCols(W), cw = W / cols;
+    keys.forEach((k, j) => m.set(k, { x: cw * (j % cols + .5), y: CELL_H * (Math.floor(j / cols) + .5) + 10 }));
+    return m;
+  }
+  const rx = W * 0.36, ry = H * 0.36;
+  keys.forEach((k, j) => { const a = -Math.PI / 2 + j * 2 * Math.PI / keys.length; m.set(k, { x: W / 2 + rx * Math.cos(a), y: H / 2 + ry * Math.sin(a) }); });
+  return m;
+}
+// Touch: one finger scrolls the page, two fingers pan and pinch the orrery.
+const coarse = matchMedia('(pointer: coarse)').matches;
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const zoomFilter = e => e.type.startsWith('touch') ? e.touches.length > 1 : (!e.ctrlKey || e.type === 'wheel') && !e.button;
+// Per-node radial force: d3.forceRadial only takes one shared center, so each item is pulled
+// toward the ring of its own planet.
+function orbitForce(center, radius, strength) {
+  let nodes;
+  const force = alpha => nodes.forEach(n => {
+    const c = center(n), dx = n.x - c.x || 1e-3, dy = n.y - c.y, r = Math.hypot(dx, dy), k = (radius(n) - r) / r * strength * alpha;
+    n.vx += dx * k; n.vy += dy * k;
+  });
+  force.initialize = ns => { nodes = ns; };
+  return force;
+}
+// A resize while another tab is shown measures a hidden (zero-size) stage: redraw on return instead.
+let orreryStale = false;
+function drawOrrery() {
+  if (document.getElementById('v-sistema').hidden) { orreryStale = true; return; }
+  orreryStale = false;
+  const node = document.getElementById('orrery');
+  const W = Math.max(node.getBoundingClientRect().width, 300), grid = useGrid(W), cols = gridCols(W);
+  // The grid sets its own height; the ring keeps the stylesheet's height.
+  node.style.height = grid ? `${Math.ceil(groupKeys().length / cols) * CELL_H + 20}px` : '';
+  node.style.touchAction = coarse ? 'pan-y' : '';
+  const H = Math.max(node.getBoundingClientRect().height, 460);
+  if (sim) sim.stop();
+  svg.attr('viewBox', `0 0 ${W} ${H}`).selectAll('*').remove();
+  const root = svg.append('g');
+  svg.call(d3.zoom().scaleExtent([0.4, 6]).filter(zoomFilter).on('zoom', e => root.attr('transform', e.transform)));
+  const C = centers(W, H);
+  const labelChars = Math.floor(W / cols / 7.5);
+  const fitLabel = s => !grid || s.length <= labelChars ? s : s.slice(0, labelChars - 1).replace(/\s+\S*$/, '') + '…';
+  const keyOf = i => groupBy === 'tema' ? primary(i) : i.cluster;
+  const counts = d3.rollup(ITEMS, v => v.length, keyOf);
+  const pr = k => 10 + Math.sqrt(counts.get(k) || 1) * 2.4;
+  // orbit rings
+  root.append('g').selectAll('circle').data([...C]).join('circle').attr('cx', d => d[1].x).attr('cy', d => d[1].y)
+    .attr('r', d => pr(d[0]) + 22).attr('fill', 'none').attr('stroke', '#262d52').attr('stroke-dasharray', '2 4');
+  const slot = new Map();
+  const nodes = ITEMS.map(i => { const k = keyOf(i); const n = counts.get(k); const j = (slot.get(k) || 0); slot.set(k, j + 1);
+    const ring = pr(k) + 14 + (j % 3) * 9, a = j * 2 * Math.PI / Math.max(n / 3, 1) + (j % 3) * .35;
+    return { i, k, x: C.get(k).x + ring * Math.cos(a), y: C.get(k).y + ring * Math.sin(a) }; });
+  const nb = new Map(nodes.map(n => [n.i.id, n]));
+  const links = BANK.links.filter(l => l.rel === 'yields').map(l => ({ source: nb.get(l.from), target: nb.get(l.to) }));
+  linkSel = root.append('g').selectAll('line').data(links).join('line').attr('stroke', '#5b9bd5').attr('stroke-opacity', .25).attr('stroke-width', .8);
+  // planets
+  const pg = root.append('g').selectAll('g').data([...C]).join('g').attr('transform', d => `translate(${d[1].x},${d[1].y})`);
+  pg.append('circle').attr('r', d => pr(d[0])).attr('fill', d => groupBy === 'tema' ? '#0d2a4a' : d3.color(CCOL.get(d[0])).darker(1.6))
+    .attr('stroke', d => groupBy === 'tema' ? '#d5bb87' : CCOL.get(d[0])).attr('stroke-width', 1.5);
+  pg.append('text').attr('class', 'planet-label').attr('text-anchor', 'middle').attr('dy', d => grid ? -CELL_H / 2 + 12 : -pr(d[0]) - 40)
+    .text(d => fitLabel(groupBy === 'tema' ? `${d[0]} ${TOPICS[d[0]].name.split(' ').slice(0, 4).join(' ').replace(/ (y|e|de|del)$/, '')}` : CBY.get(d[0]).name))
+    .append('title').text(d => groupBy === 'tema' ? `${d[0]} ${TOPICS[d[0]].name}` : CBY.get(d[0]).name);
+  pg.append('text').attr('class', 'planet-count').attr('text-anchor', 'middle').attr('dy', 4).text(d => counts.get(d[0]) || 0);
+  const sym = d3.symbol();
+  nodeSel = root.append('g').selectAll('path').data(nodes).join('path').attr('class', 'node')
+    .attr('d', d => sym.type(d.i.kind === 'proyecto' ? d3.symbolDiamond : d3.symbolCircle).size(d.i.kind === 'proyecto' ? 70 : 34)())
+    .attr('fill', d => CCOL.get(d.i.cluster)).attr('stroke', d => d.i.kind === 'proyecto' ? '#5b9bd5' : '#090b14').attr('stroke-width', d => d.i.kind === 'proyecto' ? 1.4 : .6)
+    .on('mousemove', (e, d) => { const r = document.querySelector('.stage').getBoundingClientRect(); tip.style.display = 'block'; tip.style.left = Math.min(e.clientX - r.left + 12, r.width - 330) + 'px'; tip.style.top = (e.clientY - r.top + 12) + 'px'; tip.replaceChildren(el('b', {}, `${d.i.id} · ${yearOf(d.i) || '?'}`), el('div', {}, d.i.title)); })
+    .on('mouseleave', () => tip.style.display = 'none')
+    .on('click', (e, d) => openItem(d.i.id));
+  sim = d3.forceSimulation(nodes)
+    .force('x', d3.forceX(d => C.get(d.k).x).strength(.03)).force('y', d3.forceY(d => C.get(d.k).y).strength(.03))
+    .force('collide', d3.forceCollide(d => d.i.kind === 'proyecto' ? 6 : 4.2))
+    .force('orbit', orbitForce(d => C.get(d.k), d => pr(d.k) + 24, .25))
+    .alpha(1).alphaDecay(.03).stop();
+  sim.tick(160);
+  const paint = () => {
+      nodeSel.attr('transform', d => `translate(${d.x},${d.y})`);
+      linkSel.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+  };
+  paint();
+  if (!reducedMotion) sim.alpha(.05).on('tick', paint).restart();
+  applyDim();
+}
+function applyDim() {
+  if (!nodeSel) return;
+  const keep = i => (kindFilter === 'all' || i.kind === kindFilter) && (!clusterFilter || i.cluster === clusterFilter);
+  nodeSel.classed('dim', d => !keep(d.i));
+  linkSel.classed('dim', d => !(keep(d.source.i) && keep(d.target.i)));
+}
+document.querySelectorAll('#groupby button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#groupby button').forEach(x => x.classList.toggle('on', x === b)); groupBy = b.dataset.g; drawOrrery();
+}));
+document.querySelectorAll('#kindsel button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#kindsel button').forEach(x => x.classList.toggle('on', x === b)); kindFilter = b.dataset.k; applyDim();
+}));
+const chipBox = document.getElementById('clusterchips');
+CL.forEach(c => chipBox.append(el('button', { class: 'chip', onclick: e => { clusterFilter = clusterFilter === c.id ? null : c.id; chipBox.querySelectorAll('.chip').forEach(x => x.classList.toggle('on', x === e.currentTarget && clusterFilter === c.id)); applyDim(); } },
+  el('span', { class: 'sw', style: `background:${CCOL.get(c.id)}` }), `${c.id} ${c.name}`, el('span', { class: 'n' }, String(c.members.length)))));
+
+// Cluster cards: novelty and idea bank
+function brief(c, members) {
+  const lines = [`## ${c.id} ${c.name}`, '', `Términos: ${c.top_terms.join(', ')}`, '', '### Novedades del grupo'];
+  members.slice(0, 8).forEach(i => lines.push(`- (${i.id}, ${yearOf(i) || 's.f.'}) ${i.title}: ${i.propuesta}`));
+  lines.push('', '### Brechas e ideas de trabajo futuro');
+  members.slice(0, 8).forEach(i => lines.push(`- ${i.idea_futura} (${i.id})`));
+  return lines.join('\n');
+}
+const cards = document.getElementById('cards');
+CL.forEach(c => {
+  const members = c.members.map(id => BY.get(id)).sort((a, b) => yearOf(b) - yearOf(a));
+  const na = members.filter(i => i.kind === 'articulo').length, ys = members.map(yearOf).filter(Boolean);
+  const total = Object.values(c.topics).reduce((a, b) => a + b, 0);
+  const bar = el('div', { class: 'bar', title: 'Temas principales del clúster' }, Object.entries(c.topics).map(([t, n], j) => el('span', { title: `${t} ${TOPICS[t]?.name}: ${n}`, style: `width:${100 * n / total}%;background:${d3.hsl(200 + j * 47, .45, .6 - j * .06).formatHex()}` })));
+  const copy = el('button', { class: 'btn' }, 'Copiar base de redacción');
+  copy.addEventListener('click', async () => {
+    const text = brief(c, members);
+    try { await navigator.clipboard.writeText(text); copy.textContent = 'Copiado'; }
+    catch (e) { const t = el('textarea', { style: 'width:100%;height:160px' }); t.value = text; copy.after(t); t.select(); copy.textContent = 'Seleccione y copie el texto'; }
+    setTimeout(() => copy.textContent = 'Copiar base de redacción', 2200);
+  });
+  cards.append(el('article', { class: 'card', style: `border-top:3px solid ${CCOL.get(c.id)}` },
+    el('h3', {}, el('span', { class: 'cid' }, c.id), c.name),
+    el('div', { class: 'meta' }, el('span', {}, `${na} publicaciones`), el('span', {}, `${members.length - na} proyectos`), el('span', {}, ys.length ? `${Math.min(...ys)}–${Math.max(...ys)}` : '')),
+    bar, el('div', { class: 'terms' }, c.top_terms.slice(0, 7).map(t => el('span', {}, t))),
+    el('h4', {}, 'Novedades recientes'),
+    el('ul', {}, members.slice(0, 3).map(i => el('li', {}, el('a', { onclick: () => openItem(i.id) }, i.titulo_corto || i.title), ' ', el('span', { class: 'src' }, `${i.id} · ${yearOf(i) || 's.f.'}`), el('div', { style: 'color:var(--muted);font-size:13px' }, i.propuesta)))),
+    el('h4', {}, 'Ideas para futuros papers o proyectos'),
+    el('ul', {}, members.slice(0, 4).map(i => el('li', {}, i.idea_futura, ' ', el('span', { class: 'src' }, i.id)))),
+    copy));
+});
+
+// Explorer
+const fs = document.getElementById('fstate');
+const stateOk = i => !fs.value || i.tipo === fs.value;
+const q = document.getElementById('q'), fk = document.getElementById('fkind'), ft = document.getElementById('ftopic'), fc = document.getElementById('fcluster'), fy = document.getElementById('fyear');
+TIDS.forEach(t => ft.append(el('option', { value: t }, `${t} ${TOPICS[t].name}`)));
+CL.forEach(c => fc.append(el('option', { value: c.id }, `${c.id} ${c.name}`)));
+[...new Set(ITEMS.map(yearOf).filter(Boolean))].sort((a, b) => b - a).forEach(y => fy.append(el('option', { value: y }, `Desde ${y}`)));
+const norm = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const HAY = new Map(ITEMS.map(i => [i.id, norm([i.id, i.title, i.aplicacion, i.problema, i.propuesta, i.resultados, (i.palabras_clave || []).join(' '), (i.metodos || []).join(' '), (i.aliados || []).join(' '), (i.authors || []).join(' '), i.journal, i.financiador].join(' '))]));
+function renderList() {
+  const terms = norm(q.value).split(/\s+/).filter(Boolean);
+  const rows = ITEMS.filter(i => (!fk.value || i.kind === fk.value) && (!ft.value || (i.temas || []).includes(ft.value)) && (!fc.value || i.cluster === fc.value) && (!fy.value || yearOf(i) >= +fy.value) && stateOk(i) && terms.every(t => HAY.get(i.id).includes(t)))
+    .sort((a, b) => yearOf(b) - yearOf(a));
+  document.getElementById('count').textContent = `${rows.length} de ${ITEMS.length} registros`;
+  document.getElementById('list').replaceChildren(...rows.slice(0, 300).map(i => el('div', { class: 'row', tabindex: '0', onclick: () => openItem(i.id), onkeydown: e => { if (e.key === 'Enter') openItem(i.id); } },
+    el('span', { class: 'id' }, i.id), el('span', { class: 't' }, el('span', { class: 'kind ' + i.kind }), i.title, el('small', {}, `${i.cluster} ${CBY.get(i.cluster).name} · ${(i.temas || []).join(', ')}`)), el('span', { class: 'y' }, String(yearOf(i) || '—')))));
+}
+[q, fk, ft, fc, fy, fs].forEach(x => x.addEventListener('input', renderList));
+renderList();
+
+// Timeline: stacked bars by cluster
+let timelineWidth = 0;
+function drawTimeline() {
+  const node = document.getElementById('timeline'); const W = Math.max(node.parentElement.clientWidth - 16, 340), H = 360, m = { t: 10, r: 10, b: 28, l: 34 };
+  if (W === timelineWidth) return; // same size: the chart already drawn is still right
+  timelineWidth = W;
+  const ys = d3.range(d3.min(ITEMS, yearOf.bind(null)) || 1994, d3.max(ITEMS, yearOf) + 1).filter(y => y > 1990);
+  const keys = CL.map(c => c.id);
+  const rows = ys.map(y => { const r = { y }; keys.forEach(k => r[k] = 0); ITEMS.forEach(i => { if (yearOf(i) === y) r[i.cluster]++; }); return r; });
+  const stack = d3.stack().keys(keys)(rows);
+  const x = d3.scaleBand().domain(ys).range([m.l, W - m.r]).padding(.18), yS = d3.scaleLinear().domain([0, d3.max(rows, r => d3.sum(keys, k => r[k]))]).nice().range([H - m.b, m.t]);
+  const s = d3.select(node).attr('viewBox', `0 0 ${W} ${H}`); s.selectAll('*').remove();
+  s.append('g').attr('class', 'axis').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).tickValues(ys.filter(y => y % 2 === 0)).tickSizeOuter(0));
+  s.append('g').attr('class', 'axis').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(yS).ticks(5).tickSize(-(W - m.l - m.r))).call(g => g.select('.domain').remove()).call(g => g.selectAll('line').attr('stroke-opacity', .5));
+  s.append('g').selectAll('g').data(stack).join('g').attr('fill', d => CCOL.get(d.key)).selectAll('rect').data(d => d.map(v => Object.assign(v, { key: d.key }))).join('rect')
+    .attr('x', d => x(d.data.y)).attr('width', x.bandwidth()).attr('y', d => yS(d[1])).attr('height', d => Math.max(0, yS(d[0]) - yS(d[1])))
+    .append('title').text(d => `${d.data.y} · ${d.key} ${CBY.get(d.key).name}: ${d[1] - d[0]}`);
+  const lg = document.getElementById('tlegend'); if (!lg.childElementCount) CL.forEach(c => lg.append(el('span', { class: 'chip' }, el('span', { class: 'sw', style: `background:${CCOL.get(c.id)}` }), `${c.id} ${c.name}`)));
+}
+
+// Profile: researcher record from data/raw/profile.json and products.json
+(() => {
+  const P = BANK.profile || {}, D = BANK.products || {}, box = document.getElementById('profile');
+  const card = (title, kids, cls = 'card') => el('article', { class: cls }, el('h3', {}, title), ...kids.filter(Boolean));
+  const tl = (rows) => rows.length ? el('ul', { class: 'tl' }, rows.map(([when, main, sub]) => el('li', {}, el('span', { class: 'when' }, when || ''), el('span', {}, main, sub ? el('small', {}, sub) : '')))) : el('p', { class: 'note' }, 'No reportado en las fuentes consultadas.');
+  const ul = xs => el('ul', {}, xs.map(x => el('li', {}, x)));
+  const ids = P.ids || {};
+  const links = [
+    ['CvLAC', ids.cvlac_cod_rh && `https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=${ids.cvlac_cod_rh}`],
+    ['Google Scholar', ids.google_scholar && `https://scholar.google.com/citations?user=${ids.google_scholar}`],
+    ['ORCID', ids.orcid && `https://orcid.org/${ids.orcid}`],
+    ['ResearcherID', ids.researcherid && `https://www.webofscience.com/wos/author/record/${ids.researcherid}`],
+    ...(P.sources || []).filter(u => u.includes('openalex.org/A')).map((u, k) => [`OpenAlex ${k + 1}`, u]),
+  ].filter(([, u]) => u);
+  const cat = P.minciencias_category || {};
+  box.append(
+    card(P.name || 'Investigador', [
+      el('p', {}, P.short_bio || ''),
+      el('div', { class: 'meta' }, [P.position, P.city].filter(Boolean).map(x => el('span', {}, x))),
+      cat.value ? el('div', { class: 'meta' }, el('span', {}, `Minciencias: ${cat.value}`)) : null,
+      P.languages ? el('div', { class: 'meta' }, el('span', {}, `Idiomas: ${P.languages.join(', ')}`)) : null,
+      el('h4', {}, 'Identificadores'), el('div', { class: 'ids' }, links.map(([t, u]) => el('a', { href: u, target: '_blank', rel: 'noopener' }, t))),
+    ], 'card wide'),
+    card('Formación académica', [tl([...(P.education || [])].sort((a, b) => (b.period || '').localeCompare(a.period || '')).map(e => [e.period, `${e.degree} · ${e.institution}`, e.topic || e.thesis]))]),
+    card('Trayectoria profesional', [tl([...(P.experience || [])].sort((a, b) => (b.period || '').localeCompare(a.period || '')).map(e => [e.period, e.org, e.role]))]),
+    card('Líneas y áreas de investigación', [
+      el('h4', {}, 'Líneas (CvLAC)'), ul(P.research_lines_cvlac || []),
+      el('h4', {}, 'Áreas'), el('div', { class: 'terms' }, (P.areas_cvlac || []).map(t => el('span', {}, t))),
+      el('h4', {}, 'Temas (OpenAlex)'), el('div', { class: 'terms' }, (P.openalex_topics || []).map(t => el('span', {}, t))),
+    ]),
+    card('Formación de talento', [
+      el('h4', {}, 'Trabajos de grado dirigidos'), tl((D.theses_supervised || []).map(t => [String(t.year || ''), t.title, [t.level, t.program, t.institution].filter(Boolean).join(' · ')])),
+      el('h4', {}, 'Jurado de trabajos de grado'), tl((D.thesis_juries || []).map(t => [String(t.year || ''), t.title, [t.level, t.institution].filter(Boolean).join(' · ')])),
+    ]),
+    card('Docencia y apropiación social', [
+      el('h4', {}, 'Cursos'), ul((D.teaching_courses || []).map(c => c.course)),
+      el('h4', {}, 'Eventos'), tl((D.events || []).map(e => [(e.date || '').slice(0, 7), e.name, [e.event_type, e.place, e.role].filter(Boolean).join(' · ')])),
+      el('h4', {}, 'Noticias y divulgación'), tl((D.news_and_outreach || []).map(n => [(n.date || '').slice(0, 7), n.url ? el('a', { class: 'link', href: n.url, target: '_blank', rel: 'noopener' }, n.title) : n.title, n.role])),
+    ]),
+    card('Reconocimientos', [tl((P.awards || []).map(a => [a.date, a.title, a.org]))]),
+    card('Grupos de investigación', [
+      tl((P.research_groups || []).map(g => [g.gruplac_code, `${g.name} · ${g.institution}`, 'Grupo que avaló productos suyos en convocatorias de Minciencias (datos abiertos); vínculo actual sin confirmar'])),
+      el('p', { class: 'note' }, 'CvLAC no registra su pertenencia a grupos y no se confirmó su grupo actual en la Universidad de Caldas.'),
+    ]),
+  );
+  document.querySelectorAll('[data-goto]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); show(a.dataset.goto); scrollTo({ top: 0 }); }));
+})();
+
+drawOrrery();
+show(location.hash.slice(1) || 'constelacion');
+// Phones fire resize when the address bar slides; only a width change needs a redraw.
+let rt, lastW = innerWidth;
+window.addEventListener('resize', () => {
+  if (innerWidth === lastW) return;
+  lastW = innerWidth;
+  clearTimeout(rt);
+  rt = setTimeout(() => { drawOrrery(); if (!document.getElementById('v-tiempo').hidden) drawTimeline(); }, 250);
+});
+</script>
